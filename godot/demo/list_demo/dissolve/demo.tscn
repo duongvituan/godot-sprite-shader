@@ -26,6 +26,7 @@ title = "Dissolve Dust"
 
 [node name="EzDissolveDust" type="Node" parent="Char2"]
 script = ExtResource( 1 )
+dust_size = 128.0
 
 [node name="InfoLabel" type="Label" parent="."]
 margin_left = 238.0
