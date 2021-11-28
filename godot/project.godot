@@ -60,6 +60,11 @@ _global_script_classes=[ {
 "path": "res://addons/ez_shader/utils_shader/EzShiny.gd"
 }, {
 "base": "EzShader",
+"class": "EzTransformGhost",
+"language": "GDScript",
+"path": "res://addons/ez_shader/utils_shader/EzTransformGhost.gd"
+}, {
+"base": "EzShader",
 "class": "EzTransformMetal",
 "language": "GDScript",
 "path": "res://addons/ez_shader/utils_shader/EzTransformMetal.gd"
@@ -80,6 +85,7 @@ _global_script_class_icons={
 "EzShader": "",
 "EzShaderInterval": "",
 "EzShinyFx": "",
+"EzTransformGhost": "",
 "EzTransformMetal": "",
 "EzTransfromGold": ""
 }
