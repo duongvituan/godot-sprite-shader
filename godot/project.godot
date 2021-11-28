@@ -93,6 +93,11 @@ _global_script_classes=[ {
 "class": "EzTransfromGold",
 "language": "GDScript",
 "path": "res://addons/ez_shader/utils_shader/EzTransfromGold.gd"
+}, {
+"base": "EzShader",
+"class": "EzTwist",
+"language": "GDScript",
+"path": "res://addons/ez_shader/utils_shader/EzTwist.gd"
 } ]
 _global_script_class_icons={
 "DemoLoader": "",
@@ -111,7 +116,8 @@ _global_script_class_icons={
 "EzTransformGhost": "",
 "EzTransformMetal": "",
 "EzTransfromFreeze": "",
-"EzTransfromGold": ""
+"EzTransfromGold": "",
+"EzTwist": ""
 }
 
 [application]
