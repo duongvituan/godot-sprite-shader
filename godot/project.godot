@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "DemoLoader",
+"language": "GDScript",
+"path": "res://demo/preview_demo/DemoLoader.gd"
+}, {
+"base": "Node2D",
+"class": "DemoScreen",
+"language": "GDScript",
+"path": "res://demo/list_demo/DemoScreen.gd"
+}, {
 "base": "EzShaderInterval",
 "class": "EzDissolveDust",
 "language": "GDScript",
@@ -35,6 +45,8 @@ _global_script_classes=[ {
 "path": "res://addons/ez_shader/utils_shader/base/EzShaderInterval.gd"
 } ]
 _global_script_class_icons={
+"DemoLoader": "",
+"DemoScreen": "",
 "EzDissolveDust": "",
 "EzDoodle": "",
 "EzHolographic": "",
@@ -45,6 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="godot-ez-shader"
+run/main_scene="res://demo/preview_demo/PreviewDemo.tscn"
 config/icon="res://icon.png"
 
 [editor_plugins]
