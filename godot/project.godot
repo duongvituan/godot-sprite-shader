@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "EzShaderInterval",
+"class": "EzDissolveDust",
+"language": "GDScript",
+"path": "res://addons/ez_shader/utils_shader/EzDissolveDust.gd"
+}, {
 "base": "Node",
 "class": "EzShader",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://addons/ez_shader/utils_shader/base/EzShaderInterval.gd"
 } ]
 _global_script_class_icons={
+"EzDissolveDust": "",
 "EzShader": "",
 "EzShaderInterval": ""
 }
