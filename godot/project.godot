@@ -43,6 +43,11 @@ _global_script_classes=[ {
 "class": "EzShaderInterval",
 "language": "GDScript",
 "path": "res://addons/ez_shader/utils_shader/base/EzShaderInterval.gd"
+}, {
+"base": "EzShaderInterval",
+"class": "EzShinyFx",
+"language": "GDScript",
+"path": "res://addons/ez_shader/utils_shader/EzShiny.gd"
 } ]
 _global_script_class_icons={
 "DemoLoader": "",
@@ -51,7 +56,8 @@ _global_script_class_icons={
 "EzDoodle": "",
 "EzHolographic": "",
 "EzShader": "",
-"EzShaderInterval": ""
+"EzShaderInterval": "",
+"EzShinyFx": ""
 }
 
 [application]
