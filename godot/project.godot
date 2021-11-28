@@ -58,6 +58,11 @@ _global_script_classes=[ {
 "class": "EzShinyFx",
 "language": "GDScript",
 "path": "res://addons/ez_shader/utils_shader/EzShiny.gd"
+}, {
+"base": "EzShader",
+"class": "EzTransfromGold",
+"language": "GDScript",
+"path": "res://addons/ez_shader/utils_shader/EzTransfromGold.gd"
 } ]
 _global_script_class_icons={
 "DemoLoader": "",
@@ -69,7 +74,8 @@ _global_script_class_icons={
 "EzOutlineEmpty": "",
 "EzShader": "",
 "EzShaderInterval": "",
-"EzShinyFx": ""
+"EzShinyFx": "",
+"EzTransfromGold": ""
 }
 
 [application]
