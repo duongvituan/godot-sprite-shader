@@ -188,6 +188,10 @@ func _set_shader_color_value(name_value, color):
 	shader_meterial.set_shader_param(name_value, color)
 
 
+func _set_shader_texture_value(name_value, texture):
+	shader_meterial.set_shader_param(name_value, texture)
+	
+
 func _set_fade(value: float):
 	_set_shader_f_value("fade", value, 0, 1)
 
