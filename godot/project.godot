@@ -100,6 +100,11 @@ _global_script_classes=[ {
 "path": "res://addons/ez_shader/utils_shader/EzTransformMetal.gd"
 }, {
 "base": "EzShader",
+"class": "EzTransfromBurn",
+"language": "GDScript",
+"path": "res://addons/ez_shader/utils_shader/EzTransformBurn.gd"
+}, {
+"base": "EzShader",
 "class": "EzTransfromFreeze",
 "language": "GDScript",
 "path": "res://addons/ez_shader/utils_shader/EzTransformFreeze.gd"
@@ -133,6 +138,7 @@ _global_script_class_icons={
 "EzShinyFx": "",
 "EzTransformGhost": "",
 "EzTransformMetal": "",
+"EzTransfromBurn": "",
 "EzTransfromFreeze": "",
 "EzTransfromGold": "",
 "EzTwist": ""
