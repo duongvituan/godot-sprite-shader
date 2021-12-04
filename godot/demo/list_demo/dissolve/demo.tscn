@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://addons/ez_shader/utils_shader/EzDissolveDust.gd" type="Script" id=1]
 [ext_resource path="res://demo/objects/back_ground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://demo/objects/char_viewport.tscn" type="PackedScene" id=3]
 [ext_resource path="res://demo/list_demo/dissolve/demo.gd" type="Script" id=4]
 [ext_resource path="res://demo/assets/font/LilitaOne-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://addons/ez_shader/utils_shader/EzDissolveBurn.gd" type="Script" id=6]
+[ext_resource path="res://addons/ez_shader/utils_shader/EzDissolveCircle.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -18,15 +20,29 @@ script = ExtResource( 4 )
 [node name="CanvasLayer" parent="." instance=ExtResource( 2 )]
 
 [node name="Char" parent="." instance=ExtResource( 3 )]
-position = Vector2( 330, 435 )
+position = Vector2( 185, 429 )
 
 [node name="Char2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 649, 426 )
+position = Vector2( 588, 426 )
 title = "Dissolve Dust"
 
 [node name="EzDissolveDust" type="Node" parent="Char2"]
 script = ExtResource( 1 )
 dust_size = 128.0
+
+[node name="Char3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 808, 425 )
+title = "Dissolve Burn"
+
+[node name="EzDissolveBurn" type="Node" parent="Char3"]
+script = ExtResource( 6 )
+
+[node name="Char4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 379, 426 )
+title = "Dissolve Circle"
+
+[node name="EzDissolveCircle" type="Node" parent="Char4"]
+script = ExtResource( 7 )
 
 [node name="InfoLabel" type="Label" parent="."]
 margin_left = 238.0
