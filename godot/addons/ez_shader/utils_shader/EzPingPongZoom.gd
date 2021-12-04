@@ -1,12 +1,13 @@
+tool
 class_name EzPingPongZoom extends EzShader
 
-export var zoom: float = 1.0 setget _set_zoom
-export var center_x: float = 0.5 setget _set_center_x
-export var center_y: float = 0.5 setget _set_center_y
-export var intensity: float = 0.2 setget _set_intensity
+export(float, 0.1, 4, 0.01) var zoom: float = 1.0 setget _set_zoom
+export(float, -1, 2, 0.001) var center_x: float = 0.5 setget _set_center_x
+export(float, -1, 2, 0.001) var center_y: float = 0.5 setget _set_center_y
+export(float, 0, 2, 0.001) var intensity: float = 0.2 setget _set_intensity
 
-export var speed: float = 1.0 setget _set_speed
-export var smooth_value: float = 1.0 setget _set_smooth_value
+export(float, -10, 10, 0.01) var speed: float = 1.0 setget _set_speed
+export(float, 0, 1, 0.001) var smooth_value: float = 1.0 setget _set_smooth_value
 
 
 func _load_shader():
@@ -14,21 +15,27 @@ func _load_shader():
 
 
 func _set_zoom(value):
-	_set_shader_f_value("zoom", value, 0.1, 4.0)
+	zoom = value
+	_set_shader_f_value("zoom", value)
 
 func _set_center_x(value):
-	_set_shader_f_value("center_x", value, -1, 2)
+	center_x = value
+	_set_shader_f_value("center_x", value)
 
 func _set_center_y(value):
-	_set_shader_f_value("center_y", value, -1, 2)
+	center_y = value
+	_set_shader_f_value("center_y", value)
 
 func _set_intensity(value):
-	_set_shader_f_value("intensity", value, 0, 1)
+	intensity = value
+	_set_shader_f_value("intensity", value)
 
 func _set_speed(value):
-	_set_shader_f_value("speed", value, -10, 10)
+	speed = value
+	_set_shader_f_value("speed", value)
 
 func _set_smooth_value(value):
-	_set_shader_f_value("smooth_value", value, 0, 1)
+	smooth_value = value
+	_set_shader_f_value("smooth_value", value)
 
 

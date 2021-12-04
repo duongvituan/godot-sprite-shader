@@ -3,11 +3,13 @@ class_name EzShader extends Node
 
 const SHADER_FOLDER_BASE = "res://addons/ez_shader/shader/2d/"
 
-export var fade: float = 1.0 setget _set_fade
+export(NodePath) var node_path setget _set_node_path
+export(bool) var is_active = false setget _set_active
+export(float, 0, 1, 0.001) var fade: float = 1.0 setget _set_fade
+
 
 var shader_meterial: ShaderMaterial
 var node_use_shader = null
-
 
 var ease_func_value = null
 var time_func = null
@@ -26,8 +28,6 @@ var _current_time: float = 0.0
 var _old_eased_value: float = 0.0
 
 
-var is_active: bool = false setget _set_active
-
 
 ### BUILD IN ENGINE METHODS =====================
 
@@ -35,11 +35,16 @@ func _init():
 	shader_meterial = ShaderMaterial.new()
 	shader_meterial.shader = _load_shader()
 
+func _enter_tree():
+	if node_use_shader == null:
+		node_use_shader = _auto_find_node_use_shader()
+		if node_use_shader != null:
+			node_path = node_use_shader.get_path()
+
 
 func _ready():
 	set_process(false)
-	if node_use_shader == null:
-		node_use_shader = _auto_find_node_use_shader()
+
 
 
 func _process(delta):
@@ -179,9 +184,9 @@ func _update(value: float, eased_value: float, delta: float):
 
 ### CONFIG SETGET FUNC ==========================================
 
-func _set_shader_f_value(name_value, value, _min = -99999999.0, _max = 99999999.0):
-	var valid_value = clamp(value, _min, _max)
-	shader_meterial.set_shader_param(name_value, valid_value)
+func _set_shader_f_value(name_value, value):
+#	var valid_value = clamp(value, _min, _max)
+	shader_meterial.set_shader_param(name_value, value)
 
 
 func _set_shader_color_value(name_value, color):
@@ -190,16 +195,23 @@ func _set_shader_color_value(name_value, color):
 
 func _set_shader_texture_value(name_value, texture):
 	shader_meterial.set_shader_param(name_value, texture)
-	
+
 
 func _set_fade(value: float):
-	_set_shader_f_value("fade", value, 0, 1)
+	fade = value
+	_set_shader_f_value("fade", value)
 
+
+func _set_node_path(path: NodePath):
+	var node = get_node(path)
+	if node != null:
+		node_use_shader = node
+		node_path = path
 
 func _set_active(value: bool):
 	is_active = value
 	if value:
 		node_use_shader.material = shader_meterial
-	else:
+	elif node_use_shader.material == shader_meterial:
 		node_use_shader.material = null
 ### ===============================================================

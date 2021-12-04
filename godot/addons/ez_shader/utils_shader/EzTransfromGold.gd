@@ -1,6 +1,7 @@
+tool
 class_name EzTransfromGold extends EzShader
 
-export var speed: float = 1.0 setget _set_speed
+export(float, -10, 10, 0.01) var speed: float = 1.0 setget _set_speed
 
 
 func _load_shader():
@@ -8,6 +9,7 @@ func _load_shader():
 
 
 func _set_speed(value):
-	_set_shader_f_value("speed", value, -10, 10)
+	speed = value
+	_set_shader_f_value("speed", value)
 
 

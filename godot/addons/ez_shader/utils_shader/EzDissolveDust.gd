@@ -1,13 +1,14 @@
+tool
 class_name EzDissolveDust extends EzShaderInterval
 
 
-export var offset_x: float = 0 setget _set_offset_x
+export(float, -1, 1, 0.001) var offset_x: float = 0 setget _set_offset_x
 
 # If you use this shader for Sprite ỏor RectTexure then offset_y value can be -0.85
 # If you use this shader for Viewport then offset_y value can be -0.15
-export var offset_y: float = -0.85 setget _set_offset_y
+export(float, -1, 1, 0.001) var offset_y: float = -0.85 setget _set_offset_y
 
-export var dust_size: float = 64 setget _set_dust_size
+export(int, 1, 256) var dust_size: int = 64 setget _set_dust_size
 
 
 func _load_shader():
@@ -15,11 +16,14 @@ func _load_shader():
 
 
 func _set_offset_x(value):
-	_set_shader_f_value("offset_x", value, -1, 1)
+	offset_x = value
+	_set_shader_f_value("offset_x", value)
 
 func _set_offset_y(value):
-	_set_shader_f_value("offset_y", value, -1, 1)
+	offset_y = value
+	_set_shader_f_value("offset_y", value)
 
 func _set_dust_size(value):
-	_set_shader_f_value("dust_size", value, 1, 256)
+	dust_size = value
+	_set_shader_f_value("dust_size", float(value))
 

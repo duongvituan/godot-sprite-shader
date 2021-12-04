@@ -1,3 +1,4 @@
+tool
 class_name EzDissolveBurn extends EzShaderInterval
 
 export var noise_tex = preload("res://addons/ez_shader/noise/noise1.png") setget _set_noise_tex
@@ -12,8 +13,10 @@ func _ready():
 	self.noise_tex = noise_tex
 
 func _set_noise_tex(value):
+	noise_tex = value
 	_set_shader_texture_value("noise_tex", value)
 
 func _set_burn_color(value):
+	burn_color = value
 	_set_shader_color_value("burn_color", value)
 

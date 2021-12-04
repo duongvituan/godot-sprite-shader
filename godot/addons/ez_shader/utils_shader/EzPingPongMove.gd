@@ -1,11 +1,12 @@
+tool
 class_name EzPingPongMove extends EzShader
 
-export var range_x: float = 0.1 setget _set_range_x
-export var range_y: float = 0.0 setget _set_range_y
-export var zoom_x: float = 1.0 setget _set_zoom_x
-export var zoom_y: float = 1.0 setget _set_zoom_y
-export var speed: float = 1.0 setget _set_speed
-export var smooth_value: float = 1.0 setget _set_smooth_value
+export(float, -2, 2, 0.001) var range_x: float = 0.1 setget _set_range_x
+export(float, -2, 2, 0.001) var range_y: float = 0.0 setget _set_range_y
+export(float, 0.1, 10, 0.01) var zoom_x: float = 1.0 setget _set_zoom_x
+export(float, 0.1, 10, 0.01) var zoom_y: float = 1.0 setget _set_zoom_y
+export(float, -10, 10, 0.01) var speed: float = 1.0 setget _set_speed
+export(float, 0, 1, 0.001) var smooth_value: float = 1.0 setget _set_smooth_value
 
 
 func _load_shader():
@@ -13,21 +14,27 @@ func _load_shader():
 
 
 func _set_range_x(value):
-	_set_shader_f_value("range_x", value, -2, 2)
+	range_x = value
+	_set_shader_f_value("range_x", value)
 
 func _set_range_y(value):
-	_set_shader_f_value("range_y", value, -2, 2)
+	range_y = value
+	_set_shader_f_value("range_y", value)
 
 func _set_zoom_x(value):
-	_set_shader_f_value("zoom_x", value, 0.1, 10)
+	zoom_x = value
+	_set_shader_f_value("zoom_x", value)
 
 func _set_zoom_y(value):
-	_set_shader_f_value("zoom_y", value, 0.1, 10)
+	zoom_y = value
+	_set_shader_f_value("zoom_y", value)
 
 func _set_speed(value):
-	_set_shader_f_value("speed", value, -10, 10)
+	speed = value
+	_set_shader_f_value("speed", value)
 
 func _set_smooth_value(value):
-	_set_shader_f_value("smooth_value", value, 0, 1)
+	smooth_value = value
+	_set_shader_f_value("smooth_value", value)
 
 
