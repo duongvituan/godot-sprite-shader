@@ -13,3 +13,5 @@ func _ready():
 	$Char4/EzTransformGhost.is_active = true
 	
 	$Char5/EzTransfromFreeze.is_active = true
+	
+	$Char6/EzTransfromBurn.is_active = true
