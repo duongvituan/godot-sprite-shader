@@ -20,6 +20,16 @@ _global_script_classes=[ {
 "path": "res://demo/list_demo/DemoScreen.gd"
 }, {
 "base": "EzShaderInterval",
+"class": "EzDissolveBurn",
+"language": "GDScript",
+"path": "res://addons/ez_shader/utils_shader/EzDissolveBurn.gd"
+}, {
+"base": "EzShaderInterval",
+"class": "EzDissolveCircle",
+"language": "GDScript",
+"path": "res://addons/ez_shader/utils_shader/EzDissolveCircle.gd"
+}, {
+"base": "EzShaderInterval",
 "class": "EzDissolveDust",
 "language": "GDScript",
 "path": "res://addons/ez_shader/utils_shader/EzDissolveDust.gd"
@@ -107,6 +117,8 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "DemoLoader": "",
 "DemoScreen": "",
+"EzDissolveBurn": "",
+"EzDissolveCircle": "",
 "EzDissolveDust": "",
 "EzDoodle": "",
 "EzHolographic": "",
