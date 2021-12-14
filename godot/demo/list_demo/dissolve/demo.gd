@@ -29,3 +29,15 @@ func start_to_dust():
 		
 		# Dissolve with circle
 		$Char4/EzDissolveCircle.play(1.0, false)
+		$Char4.stop_sprite_animation()
+	else:
+		is_active = false
+		$Char2/EzDissolveDust.offset_y = -0.15
+		$Char2/EzDissolveDust.play_reverse(1.0, false)
+		$Char2.play_sprite_animation()
+		
+		$Char3/EzDissolveBurn.play_reverse(1.0, false)
+		$Char3.play_sprite_animation()
+		
+		$Char4/EzDissolveCircle.play_reverse(1.0, false)
+		$Char4.play_sprite_animation()

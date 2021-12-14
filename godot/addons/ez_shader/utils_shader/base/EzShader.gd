@@ -1,7 +1,7 @@
 class_name EzShader extends Node
 
 
-const SHADER_FOLDER_BASE = "res://addons/ez_shader/shader/2d/"
+const SHADER_FOLDER_BASE = "res://addons/ez_shader/shader/"
 
 export(NodePath) var node_path setget _set_node_path
 export(bool) var is_active = false setget _set_active
@@ -21,6 +21,7 @@ var repeat: int = 1
 var delay_each_repeat: float = 0
 var _repeat_count: int = 0
 var _current_delay_each_repeat_time: float = 0
+var is_reverse: bool = false
 
 
 var duration: float = 0.0	
@@ -29,7 +30,7 @@ var _old_eased_value: float = 0.0
 
 
 
-### BUILD IN ENGINE METHODS =====================
+### BUILD IN ENGINE METHODS ====================================================
 
 func _init():
 	shader_meterial = ShaderMaterial.new()
@@ -46,7 +47,6 @@ func _ready():
 	set_process(false)
 
 
-
 func _process(delta):
 	if (not is_instance_valid(node_use_shader)) or duration <= 0.0:
 		_finished()
@@ -56,49 +56,71 @@ func _process(delta):
 		_finished()
 		return
 	
+	if _current_delay_each_repeat_time > 0:
+		_current_delay_each_repeat_time -= delta
+		if _current_delay_each_repeat_time >= 0:
+			return
+		else:
+			delta = abs(_current_delay_each_repeat_time)
+	
 	_current_time += delta
 	if _current_time > duration:
 		# final frame call update
-		_update_ease_in(duration, duration + delta - _current_time)
+		_update_value_if_need(duration, duration + delta - _current_time)
 		_reset_time_value()
 		_check_repeat_or_finish()
 		return
-	_update_ease_in(_current_time, delta)
-### ===============================================================
+	_update_value_if_need(_current_time, delta)
+
+### ============================================================================
 
 
-### PUBLIC METHODS ==========================================
+### PUBLIC METHODS =============================================================
 
 func play(duration: float, inactive_when_finished: bool = false):
-	self.inactive_when_finished = inactive_when_finished
-	self.repeat = 1
-	self.duration = duration
-	self.is_active = true
-	_reset()
-	set_process(true)
+	_play(duration, 1, 0, false, inactive_when_finished)
 
 
 func play_repeat(duration: float, repeat: int, inactive_when_finished: bool = false, delay_each_repeat: float = 0.0):
-	self.inactive_when_finished = inactive_when_finished
-	self.delay_each_repeat = delay_each_repeat
-	self.repeat = repeat
-	self.duration = duration
-	self.is_active = true
-	_reset()
-	set_process(true)
+	_play(duration, repeat, delay_each_repeat, false, inactive_when_finished)
 
 
 func play_repeat_forever(duration: float, delay_each_repeat: float = 0.0):
+	_play(duration, -1, delay_each_repeat, false, false)
+
+
+func play_reverse(duration: float, inactive_when_finished: bool = false):
+	_play(duration, 1, 0, true, inactive_when_finished)
+
+
+func play_reverse_repeat(duration: float, repeat: int, inactive_when_finished: bool = false, delay_each_repeat: float = 0.0):
+	_play(duration, repeat, delay_each_repeat, true, inactive_when_finished)
+
+
+func play_reverse_repeat_forever(duration: float, delay_each_repeat: float = 0.0):
+	_play(duration, -1, delay_each_repeat, false, false)
+
+
+### ============================================================================
+
+
+### PRIVATE METHODS ============================================================
+
+func _play(duration: float, repeat: int, delay_each_repeat: float, is_reverse: bool, inactive_when_finished: bool):
 	self.duration = duration
-	self. delay_each_repeat = delay_each_repeat
-	self.repeat_forever = true
+	if repeat > 0:
+		self.repeat = repeat
+	else:
+		self.repeat_forever = true
+	self.delay_each_repeat = delay_each_repeat
+	self.is_reverse = is_reverse
+	self.inactive_when_finished = inactive_when_finished
+	
 	self.is_active = true
 	_reset()
 	set_process(true)
-### ===============================================================
 
 
-### PRIVATE METHODS ==========================================
 func _valid_node_use_shader(node) -> bool:
 	return node is Sprite \
 		or node is TextureRect \
@@ -128,6 +150,7 @@ func _auto_find_node_use_shader() -> Node:
 
 
 func _check_repeat_or_finish():
+	_current_delay_each_repeat_time = delay_each_repeat
 	if repeat_forever:
 		return
 		
@@ -142,20 +165,28 @@ func _finished():
 		self.is_active = false
 
 
-func _update_ease_in(value: float, delta: float):
+func _update_value_if_need(raw_value: float, raw_delta: float):
+	var value = raw_value
+	var eased_value = raw_value / self.duration
+	var delta = raw_delta
+	
 	if ease_func_value != null:
-		var eased_value = ease(value / duration, ease_func_value)
-		_update(eased_value * duration, eased_value, (eased_value - _old_eased_value) * duration)
-		_old_eased_value = eased_value
-
+		eased_value = ease(eased_value, ease_func_value)
+		value = eased_value * self.duration
+		delta = (eased_value - self._old_eased_value) * self.duration
+		self._old_eased_value = eased_value
+	
 	elif time_func != null:
-		var eased_value = time_func.interpolate(value / duration)
-		_update(eased_value * duration, eased_value, (eased_value - _old_eased_value) * duration)
-		_old_eased_value = eased_value
-
-	else:
-		_update(value, value / duration, delta)
-
+		eased_value = time_func.interpolate(eased_value)
+		value = eased_value * self.duration
+		delta = (eased_value - self._old_eased_value) * self.duration
+		self._old_eased_value = eased_value
+	
+	if self.is_reverse:
+		value = self.duration - value
+		eased_value = 1.0 - eased_value
+	
+	_update(value, eased_value, delta)
 
 
 func _reset_time_value():
@@ -165,10 +196,11 @@ func _reset_time_value():
 
 func _reset():
 	_reset_time_value()
+	_current_delay_each_repeat_time = 0
 	_repeat_count = 0
 
 
-### VIRTUAL FUNC ================================================
+### VIRTUAL FUNC ===============================================================
 
 func _load_shader():
 	pass
@@ -182,7 +214,7 @@ func _update(value: float, eased_value: float, delta: float):
 
 
 
-### CONFIG SETGET FUNC ==========================================
+### CONFIG SETGET FUNC =========================================================
 
 func _set_shader_f_value(name_value, value):
 #	var valid_value = clamp(value, _min, _max)
@@ -214,4 +246,5 @@ func _set_active(value: bool):
 		node_use_shader.material = shader_meterial
 	elif node_use_shader.material == shader_meterial:
 		node_use_shader.material = null
-### ===============================================================
+
+### ============================================================================

@@ -11,9 +11,10 @@ vec4 circle_fade(vec4 txt, vec2 uv, float posX, float posY, vec4 color, float va
 {
 	vec2 center = vec2(posX, posY);
 	float r = smoothstep(0, value, length(center - uv));
-	txt.a *= 1.0 - r;
-	txt.rgb = mix(txt.rgb, color.rgb * 5.0, (1.0 - r) * (1.0 - r));
-	return txt;
+	vec4 output = txt;
+	output.a *= 1.0 - r;
+	output.rgb = mix(txt.rgb, color.rgb * 5.0, (1.0 - r) * (1.0 - r));
+	return mix(txt, output, 1.0 - value);
 }
 
 

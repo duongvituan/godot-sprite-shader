@@ -9,3 +9,6 @@ func _set_title(value):
 
 func stop_sprite_animation():
 	$ViewportContainer/Viewport/Char/AnimationPlayer.stop(true)
+
+func play_sprite_animation():
+	$ViewportContainer/Viewport/Char/AnimationPlayer.play("New Anim")

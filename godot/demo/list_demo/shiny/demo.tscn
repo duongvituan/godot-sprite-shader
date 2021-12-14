@@ -19,6 +19,7 @@ title = "Static Shiny"
 
 [node name="EzShinyFx" type="Node" parent="Char2"]
 script = ExtResource( 4 )
+node_path = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112")
 process_value = 0.5
 
 [node name="Char3" parent="." instance=ExtResource( 3 )]
@@ -27,6 +28,7 @@ title = "Shiny To Left"
 
 [node name="EzShinyFx" type="Node" parent="Char3"]
 script = ExtResource( 4 )
+node_path = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112")
 
 [node name="Char4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 676, 427 )
@@ -34,6 +36,7 @@ title = "Shiny To Right"
 
 [node name="EzShinyFx" type="Node" parent="Char4"]
 script = ExtResource( 4 )
+node_path = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112")
 
 [node name="Char5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 845, 423 )
@@ -41,3 +44,4 @@ title = "Shiny Swing"
 
 [node name="EzShinyFx" type="Node" parent="Char5"]
 script = ExtResource( 4 )
+node_path = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6275/@@6109/@@6110/@@6111/@@6112")
