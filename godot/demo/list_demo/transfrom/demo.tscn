@@ -27,6 +27,7 @@ title = "Transform Gold"
 
 [node name="EzTransfromGold" type="Node" parent="Char2"]
 script = ExtResource( 3 )
+node_path = "../ViewportContainer"
 
 [node name="Char3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 415.355, 420.785 )
@@ -34,6 +35,7 @@ title = "Transform Metal"
 
 [node name="EzTransformMetal" type="Node" parent="Char3"]
 script = ExtResource( 4 )
+node_path = "../ViewportContainer"
 
 [node name="Char4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 575.71, 413.766 )
@@ -41,6 +43,7 @@ title = "Transform Ghost"
 
 [node name="EzTransformGhost" type="Node" parent="Char4"]
 script = ExtResource( 6 )
+node_path = "../ViewportContainer"
 
 [node name="Char5" parent="." instance=ExtResource( 2 )]
 position = Vector2( 745.243, 416.178 )
@@ -48,6 +51,7 @@ title = "Transform Freeze"
 
 [node name="EzTransfromFreeze" type="Node" parent="Char5"]
 script = ExtResource( 7 )
+node_path = "../ViewportContainer"
 
 [node name="Char6" parent="." instance=ExtResource( 2 )]
 position = Vector2( 911.187, 417.981 )
@@ -55,6 +59,7 @@ title = "Transform Burn"
 
 [node name="EzTransfromBurn" type="Node" parent="Char6"]
 script = ExtResource( 8 )
+node_path = "../ViewportContainer"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )

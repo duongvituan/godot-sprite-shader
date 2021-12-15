@@ -19,5 +19,6 @@ title = "Holographic"
 
 [node name="EzHolographic" type="Node" parent="Char2"]
 script = ExtResource( 3 )
+node_path = null
 
 [editable path="CanvasLayer"]

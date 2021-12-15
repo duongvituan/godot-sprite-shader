@@ -3,7 +3,7 @@ class_name EzShader extends Node
 
 const SHADER_FOLDER_BASE = "res://addons/ez_shader/shader/"
 
-export(NodePath) var node_path setget _set_node_path
+export(NodePath) var node_path = null setget _set_node_path
 export(bool) var is_active = false setget _set_active
 export(float, 0, 1, 0.001) var fade: float = 1.0 setget _set_fade
 
@@ -28,7 +28,7 @@ var duration: float = 0.0
 var _current_time: float = 0.0
 var _old_eased_value: float = 0.0
 
-
+var _ready = false
 
 ### BUILD IN ENGINE METHODS ====================================================
 
@@ -36,14 +36,27 @@ func _init():
 	shader_meterial = ShaderMaterial.new()
 	shader_meterial.shader = _load_shader()
 
-func _enter_tree():
-	if node_use_shader == null:
-		node_use_shader = _auto_find_node_use_shader()
-		if node_use_shader != null:
-			node_path = node_use_shader.get_path()
+
+#func _enter_tree():
+#	pass
 
 
 func _ready():
+	_ready = true
+	
+	if node_path == null:
+		var result = _auto_find_node_use_shader()
+		var find_node = result[0]
+		var find_node_path = result[1]
+		
+		if find_node != null:
+			node_use_shader = find_node
+			node_path = find_node_path
+	
+	elif node_path != null:
+		node_use_shader = get_node(node_path)
+	
+	self.is_active = is_active
 	set_process(false)
 
 
@@ -127,26 +140,32 @@ func _valid_node_use_shader(node) -> bool:
 		or node is ViewportContainer
 
 
-# If node_use_shader not set then EzNode will auto find it.
+# If node_use_shader not set then EzNode will auto find it. (it return "/root/EditorNode/@@..")
 # This func find valid node in all parent of EzNode or all node same level with EzNode 
-func _auto_find_node_use_shader() -> Node:
-	# find valid node with parrent ezNode
-	var node = self
-	while true:
-		if _valid_node_use_shader(node):
-			return node
-		
-		node = node.get_parent()
-		if node == null:
-			break
+func _auto_find_node_use_shader():
+	# Humm, func get_path() not working well with Node use "tool",
+	# So I find node path with code. :((
+	var path_node = ""
 	
 	# find valid node in same level with ez node:
 	for child_node in self.get_parent().get_children():
 		if _valid_node_use_shader(child_node):
-			return child_node
-			
+			path_node = "../%s" % child_node.name
+			return [child_node, path_node]
+	
+	# find valid node with parrent ezNode
+	var node = self
+	
+	while true:
+		if _valid_node_use_shader(node):
+			return [node, path_node]
+		path_node += "../"
+		node = node.get_parent()
+		if node == null:
+			break
+	
 	print("_auto_find_node_use_shader: can't find valid node use shader")
-	return null
+	return [null, ""]
 
 
 func _check_repeat_or_finish():
@@ -235,13 +254,24 @@ func _set_fade(value: float):
 
 
 func _set_node_path(path: NodePath):
+	node_path = path
+	if path == null or not self._ready:
+		return
+	
 	var node = get_node(path)
+	
 	if node != null:
 		node_use_shader = node
-		node_path = path
+	else:
+		node_path = null
+
 
 func _set_active(value: bool):
 	is_active = value
+	
+	if node_use_shader == null or not self._ready:
+		return
+	
 	if value:
 		node_use_shader.material = shader_meterial
 	elif node_use_shader.material == shader_meterial:

@@ -20,6 +20,7 @@ title = "Outline"
 
 [node name="EzOutline" type="Node" parent="CharOutline"]
 script = ExtResource( 2 )
+node_path = null
 
 [node name="CharOutlineEmpty" parent="." instance=ExtResource( 4 )]
 position = Vector2( 664, 435 )
@@ -27,3 +28,4 @@ title = "Outline Empty"
 
 [node name="EzOutlineEmpty" type="Node" parent="CharOutlineEmpty"]
 script = ExtResource( 5 )
+node_path = null

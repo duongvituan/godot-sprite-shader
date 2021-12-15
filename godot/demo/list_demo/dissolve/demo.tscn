@@ -28,7 +28,7 @@ title = "Dissolve Dust"
 
 [node name="EzDissolveDust" type="Node" parent="Char2"]
 script = ExtResource( 1 )
-node_path = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6267/@@6101/@@6102/@@6103/@@6104")
+node_path = NodePath("../ViewportContainer")
 dust_size = 128
 
 [node name="Char3" parent="." instance=ExtResource( 3 )]
@@ -37,7 +37,7 @@ title = "Dissolve Burn"
 
 [node name="EzDissolveBurn" type="Node" parent="Char3"]
 script = ExtResource( 6 )
-node_path = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6267/@@6101/@@6102/@@6103/@@6104")
+node_path = NodePath("../ViewportContainer")
 
 [node name="Char4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 379, 426 )
@@ -45,7 +45,7 @@ title = "Dissolve Circle"
 
 [node name="EzDissolveCircle" type="Node" parent="Char4"]
 script = ExtResource( 7 )
-node_path = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6267/@@6101/@@6102/@@6103/@@6104")
+node_path = "../ViewportContainer"
 
 [node name="InfoLabel" type="Label" parent="."]
 margin_left = 238.0
