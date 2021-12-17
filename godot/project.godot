@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/ez_shader/utils_shader/EzDoodle.gd"
 }, {
+"base": "EzShaderInterval",
+"class": "EzGlitch",
+"language": "GDScript",
+"path": "res://addons/ez_shader/utils_shader/EzGlitch.gd"
+}, {
 "base": "EzShader",
 "class": "EzHolographic",
 "language": "GDScript",
@@ -126,6 +131,7 @@ _global_script_class_icons={
 "EzDissolveCircle": "",
 "EzDissolveDust": "",
 "EzDoodle": "",
+"EzGlitch": "",
 "EzHolographic": "",
 "EzOneColor": "",
 "EzOutline": "",

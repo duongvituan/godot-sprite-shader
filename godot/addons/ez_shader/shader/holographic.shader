@@ -72,7 +72,7 @@ vec4 tint_holo_color(vec4 txt, vec4 color)
 {
 	vec3 tint = vec3(dot(txt.rgb, vec3(.22, .7, .07)));
 	tint.rgb *= color.rgb;
-	txt.rgb = mix(txt.rgb,tint.rgb,color.a);
+	txt.rgb = mix(txt.rgb, tint.rgb, color.a);
 	return txt;
 }
 
