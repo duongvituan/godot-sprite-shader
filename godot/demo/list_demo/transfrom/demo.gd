@@ -6,12 +6,12 @@ func get_name() -> String:
 
 
 func _ready():
-	$Char2/EzTransfromGold.is_active = true
+	$Char2/EzTransfromGold.play_repeat_forever(3.0)
 	
-	$Char3/EzTransformMetal.is_active = true
+	$Char3/EzTransformMetal.play_repeat_forever(2.0)
 	
-	$Char4/EzTransformGhost.is_active = true
+	$Char4/EzTransformGhost.play_repeat_forever(6.0)
 	
-	$Char5/EzTransfromFreeze.is_active = true
+	$Char5/EzTransfromFreeze.play_repeat_forever(5.0)
 	
-	$Char6/EzTransfromBurn.is_active = true
+	$Char6/EzTransfromBurn.play_repeat_forever(3.0)

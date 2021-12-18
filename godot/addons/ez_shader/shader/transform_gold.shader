@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
-uniform float speed : hint_range(-10, 10) = 1;
-uniform float sprite_fade : hint_range(0.0, 1.0) = 1.0;
+uniform float process_value : hint_range(0.0, 1.0) = 0.0;
+uniform float fade : hint_range(0.0, 1.0) = 1.0;
 
 
 // Approximates luminance from an RGB value
@@ -10,16 +10,15 @@ float calc_luminance(vec3 color)
     return dot(color, vec3(0.2126, 0.7152, 0.0721));
 }
 
-float mark_light(vec2 uv, float _speed, float _time)
+float mark_light(vec2 uv, float value)
 {
 	vec2 co = uv * 5.0;
-	float v = _time * _speed;
-	float n = sin(v + co.x) + sin(v - co.x) + sin(v + co.y) + sin(v + 2.5 * co.y);
+	float n = sin(value + co.x) + sin(value - co.x) + sin(value + co.y) + sin(value + 2.5 * co.y);
 	return fract((5.0 + n) / 5.0);
 }
 
 
-vec4 transform_gold(vec2 uv, sampler2D txt, float _speed, float _time)
+vec4 transform_gold(vec2 uv, sampler2D txt, float value)
 {
 	vec4 txt_color = texture(txt, uv);
 	float luminance = calc_luminance(txt_color.rbg);
@@ -29,8 +28,7 @@ vec4 transform_gold(vec2 uv, sampler2D txt, float _speed, float _time)
 	metal.b = luminance * pow(0.75 * luminance, 8.0);
 	
 	vec2 co = uv * 2.5;
-	float v = _time * _speed * 1.5;
-	float n = mark_light(uv, _speed, _time);
+	float n = mark_light(uv, value);
 	n += dot(txt_color.rbg, vec3(0.2, 0.4, 0.2));
 	n = fract(n);
 	
@@ -44,10 +42,11 @@ vec4 transform_gold(vec2 uv, sampler2D txt, float _speed, float _time)
 
 void fragment()
 {
-	vec4 transform_gold = transform_gold(UV, TEXTURE, speed, TIME);
+	float value = process_value * 6.28318;
+	vec4 transform_gold = transform_gold(UV, TEXTURE, value);
 	vec4 output_color = transform_gold;
 
-	output_color.a *= sprite_fade;
+	output_color.a *= fade;
 	COLOR = output_color;
 }
 

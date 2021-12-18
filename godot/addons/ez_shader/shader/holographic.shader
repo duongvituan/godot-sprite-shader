@@ -15,9 +15,9 @@ float holo_noise(sampler2D source, vec2 p, float time)
 }
 
 
-float holo_on(float a, float b, float c, float time)
+float holo_on(float x, float y, float z, float time)
 {
-	return step(c, sin(time + a * cos(time * b)));
+	return step(z, sin(time + x * cos(time * y)));
 }
 
 
@@ -49,7 +49,7 @@ vec4 hologram(vec2 uv, sampler2D source, float value, float noise_x, float speed
 	float _time = time * speed;
 	vec2 _uv = uv;
 	
-	float atm_shift_x = 1. / (1. + 30. * (_uv.y - fract(_time / 4.0)) * (_uv.y - fract(_time / 4.0)));
+	float atm_shift_x = 1. / (1. + 30. * (_uv.y - fract(_time * 0.25)) * (_uv.y - fract(_time * 0.25)));
 	float horizontal_shift = atm_shift_x * sin(_uv.y * noise_x * 100.0 + _time) / (50. * value) * holo_on(4., 4., .3, time) * (1. + cos(_time * 70.));
 	_uv.x += horizontal_shift;
 	
@@ -60,9 +60,9 @@ vec4 hologram(vec2 uv, sampler2D source, float value, float noise_x, float speed
 	holo_txt.rb = texture(source, _uv - vec2(.05, 0.) * holo_on(2., 1.5, .9, time)).rb;
 	
 	float noise = holo_noise(source, uv * vec2(0.5, 1.) + vec2(6., 3.), time) * value * 3.;
-	holo_txt += wave_line_mark(uv, _time) * noise * holo_txt.a;
-	holo_txt *= horizontal_row_mark(uv, _time);
-	holo_txt.a = (holo_txt.a + generate_noise(uv) * 0.5) * txt.a * 0.8;
+	holo_txt += wave_line_mark(_uv, _time) * noise * holo_txt.a;
+	holo_txt *= horizontal_row_mark(_uv, _time);
+	holo_txt.a = (holo_txt.a + generate_noise(_uv) * 0.5) * txt.a * 0.8;
 	
 	return mix(txt, holo_txt, value);
 }

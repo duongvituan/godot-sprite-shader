@@ -1,12 +1,10 @@
 tool
-class_name EzPingPongZoom extends EzShader
+class_name EzPingPongZoom extends EzShaderInterval
 
 export(float, 0.1, 4, 0.01) var zoom: float = 1.0 setget _set_zoom
 export(float, -1, 2, 0.001) var center_x: float = 0.5 setget _set_center_x
 export(float, -1, 2, 0.001) var center_y: float = 0.5 setget _set_center_y
 export(float, 0, 2, 0.001) var intensity: float = 0.2 setget _set_intensity
-
-export(float, -10, 10, 0.01) var speed: float = 1.0 setget _set_speed
 export(float, 0, 1, 0.001) var smooth_value: float = 1.0 setget _set_smooth_value
 
 
@@ -29,10 +27,6 @@ func _set_center_y(value):
 func _set_intensity(value):
 	intensity = value
 	_set_shader_f_value("intensity", value)
-
-func _set_speed(value):
-	speed = value
-	_set_shader_f_value("speed", value)
 
 func _set_smooth_value(value):
 	smooth_value = value
