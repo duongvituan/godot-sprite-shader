@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://demo/objects/back_ground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://demo/objects/char_sprite_sheets.tscn" type="PackedScene" id=2]
 [ext_resource path="res://addons/ez_shader/utils_shader/EzHolographic.gd" type="Script" id=3]
+[ext_resource path="res://addons/ez_shader/utils_shader/base/EzShaderPlayer.gd" type="Script" id=4]
 [ext_resource path="res://demo/list_demo/holographic/demo.gd" type="Script" id=5]
 [ext_resource path="res://addons/ez_shader/utils_shader/EzGlitch.gd" type="Script" id=6]
 
@@ -18,16 +19,22 @@ position = Vector2( 415, 445 )
 position = Vector2( 613, 437 )
 title = "Holographic"
 
-[node name="EzHolographic" type="Node" parent="Char2"]
+[node name="EzShaderPlayer" type="Node" parent="Char2"]
+script = ExtResource( 4 )
+node_path = null
+
+[node name="EzHolographic" type="Node" parent="Char2/EzShaderPlayer"]
 script = ExtResource( 3 )
-node_path = NodePath("..")
 
 [node name="Char3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 793, 429 )
 title = "Glitch"
 
-[node name="EzGlitch" type="Node" parent="Char3"]
+[node name="EzShaderPlayer" type="Node" parent="Char3"]
+script = ExtResource( 4 )
+node_path = null
+
+[node name="EzGlitch" type="Node" parent="Char3/EzShaderPlayer"]
 script = ExtResource( 6 )
-node_path = "../"
 
 [editable path="CanvasLayer"]

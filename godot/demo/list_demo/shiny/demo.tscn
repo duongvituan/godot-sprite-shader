@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://demo/list_demo/shiny/demo.gd" type="Script" id=1]
 [ext_resource path="res://demo/objects/back_ground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://demo/objects/char_viewport.tscn" type="PackedScene" id=3]
 [ext_resource path="res://addons/ez_shader/utils_shader/EzShiny.gd" type="Script" id=4]
+[ext_resource path="res://addons/ez_shader/utils_shader/base/EzShaderPlayer.gd" type="Script" id=5]
 
 [node name="demo" type="Node2D"]
 script = ExtResource( 1 )
@@ -17,31 +18,43 @@ position = Vector2( 177, 422 )
 position = Vector2( 339, 421 )
 title = "Static Shiny"
 
-[node name="EzShinyFx" type="Node" parent="Char2"]
+[node name="EzShaderPlayer" type="Node" parent="Char2"]
+script = ExtResource( 5 )
+node_path = NodePath("../ViewportContainer")
+
+[node name="EzShinyFx" type="Node" parent="Char2/EzShaderPlayer"]
 script = ExtResource( 4 )
-node_path = null
 process_value = 0.5
 
 [node name="Char3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 509, 425 )
 title = "Shiny To Left"
 
-[node name="EzShinyFx" type="Node" parent="Char3"]
+[node name="EzShaderPlayer" type="Node" parent="Char3"]
+script = ExtResource( 5 )
+node_path = NodePath("../ViewportContainer")
+
+[node name="EzShinyFx" type="Node" parent="Char3/EzShaderPlayer"]
 script = ExtResource( 4 )
-node_path = null
 
 [node name="Char4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 676, 427 )
 title = "Shiny To Right"
 
-[node name="EzShinyFx" type="Node" parent="Char4"]
+[node name="EzShaderPlayer" type="Node" parent="Char4"]
+script = ExtResource( 5 )
+node_path = NodePath("../ViewportContainer")
+
+[node name="EzShinyFx" type="Node" parent="Char4/EzShaderPlayer"]
 script = ExtResource( 4 )
-node_path = null
 
 [node name="Char5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 845, 423 )
 title = "Shiny Swing"
 
-[node name="EzShinyFx" type="Node" parent="Char5"]
+[node name="EzShaderPlayer" type="Node" parent="Char5"]
+script = ExtResource( 5 )
+node_path = NodePath("../ViewportContainer")
+
+[node name="EzShinyFx" type="Node" parent="Char5/EzShaderPlayer"]
 script = ExtResource( 4 )
-node_path = null

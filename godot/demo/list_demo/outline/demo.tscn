@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://demo/list_demo/outline/demo.gd" type="Script" id=1]
 [ext_resource path="res://addons/ez_shader/utils_shader/EzOutline.gd" type="Script" id=2]
 [ext_resource path="res://demo/objects/back_ground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://demo/objects/char_sprite_sheets.tscn" type="PackedScene" id=4]
 [ext_resource path="res://addons/ez_shader/utils_shader/EzOutlineEmpty.gd" type="Script" id=5]
+[ext_resource path="res://addons/ez_shader/utils_shader/base/EzShaderPlayer.gd" type="Script" id=6]
 
 [node name="demo" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,14 +19,20 @@ position = Vector2( 319, 435 )
 position = Vector2( 490, 436 )
 title = "Outline"
 
-[node name="EzOutline" type="Node" parent="CharOutline"]
-script = ExtResource( 2 )
+[node name="EzShaderPlayer" type="Node" parent="CharOutline"]
+script = ExtResource( 6 )
 node_path = null
+
+[node name="EzOutline" type="Node" parent="CharOutline/EzShaderPlayer"]
+script = ExtResource( 2 )
 
 [node name="CharOutlineEmpty" parent="." instance=ExtResource( 4 )]
 position = Vector2( 664, 435 )
 title = "Outline Empty"
 
-[node name="EzOutlineEmpty" type="Node" parent="CharOutlineEmpty"]
-script = ExtResource( 5 )
+[node name="EzShaderPlayer" type="Node" parent="CharOutlineEmpty"]
+script = ExtResource( 6 )
 node_path = null
+
+[node name="EzOutlineEmpty" type="Node" parent="CharOutlineEmpty/EzShaderPlayer"]
+script = ExtResource( 5 )

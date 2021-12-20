@@ -3,32 +3,21 @@ class_name EzShader extends Node
 
 const SHADER_FOLDER_BASE = "res://addons/ez_shader/shader/"
 
-export(NodePath) var node_path = null setget _set_node_path
 export(bool) var is_active = false setget _set_active
 export(float, 0, 1, 0.001) var fade: float = 1.0 setget _set_fade
 
+var _shader_player: EzShaderPlayer setget , _get_shader_player
 
 var shader_meterial: ShaderMaterial
-var node_use_shader = null
 
 var ease_func_value = null
 var time_func = null
 
-
-var inactive_when_finished: bool = false
-var repeat_forever: bool = false
-var repeat: int = 1
-var delay_each_repeat: float = 0
-var _repeat_count: int = 0
-var _current_delay_each_repeat_time: float = 0
 var is_reverse: bool = false
-
-
 var duration: float = 0.0	
-var _current_time: float = 0.0
-var _old_eased_value: float = 0.0
 
-var _ready = false
+
+var _old_eased_value: float = 0.0
 
 ### BUILD IN ENGINE METHODS ====================================================
 
@@ -37,53 +26,12 @@ func _init():
 	shader_meterial.shader = _load_shader()
 
 
-#func _enter_tree():
-#	pass
+func _get_configuration_warning():
+	var warnings = PoolStringArray()
+	if not self._shader_player:
+		warnings.append("%s must be a child of EzShaderPlayer" % name)
+	return warnings.join("\n")
 
-
-func _ready():
-	_ready = true
-	
-	if node_path == null:
-		var result = _auto_find_node_use_shader()
-		var find_node = result[0]
-		var find_node_path = result[1]
-		
-		if find_node != null:
-			node_use_shader = find_node
-			node_path = find_node_path
-	
-	elif node_path != null:
-		node_use_shader = get_node(node_path)
-	
-	self.is_active = is_active
-	set_process(false)
-
-
-func _process(delta):
-	if (not is_instance_valid(node_use_shader)) or duration <= 0.0:
-		_finished()
-		return
-	
-	if node_use_shader.material != shader_meterial:
-		_finished()
-		return
-	
-	if _current_delay_each_repeat_time > 0:
-		_current_delay_each_repeat_time -= delta
-		if _current_delay_each_repeat_time >= 0:
-			return
-		else:
-			delta = abs(_current_delay_each_repeat_time)
-	
-	_current_time += delta
-	if _current_time > duration:
-		# final frame call update
-		_update_value_if_need(duration, duration + delta - _current_time)
-		_reset_time_value()
-		_check_repeat_or_finish()
-		return
-	_update_value_if_need(_current_time, delta)
 
 ### ============================================================================
 
@@ -121,102 +69,39 @@ func play_reverse_repeat_forever(duration: float, delay_each_repeat: float = 0.0
 
 func _play(duration: float, repeat: int, delay_each_repeat: float, is_reverse: bool, inactive_when_finished: bool):
 	self.duration = duration
-	if repeat > 0:
-		self.repeat = repeat
-	else:
-		self.repeat_forever = true
-	self.delay_each_repeat = delay_each_repeat
 	self.is_reverse = is_reverse
-	self.inactive_when_finished = inactive_when_finished
+	self._old_eased_value = 0
 	
-	self.is_active = true
-	_reset()
-	set_process(true)
-
-
-func _valid_node_use_shader(node) -> bool:
-	return node is Sprite \
-		or node is TextureRect \
-		or node is ViewportContainer
-
-
-# If node_use_shader not set then EzNode will auto find it. (it return "/root/EditorNode/@@..")
-# This func find valid node in all parent of EzNode or all node same level with EzNode 
-func _auto_find_node_use_shader():
-	# Humm, func get_path() not working well with Node use "tool",
-	# So I find node path with code. :((
-	var path_node = ""
-	
-	# find valid node in same level with ez node:
-	for child_node in self.get_parent().get_children():
-		if _valid_node_use_shader(child_node):
-			path_node = "../%s" % child_node.name
-			return [child_node, path_node]
-	
-	# find valid node with parrent ezNode
-	var node = self
-	
-	while true:
-		if _valid_node_use_shader(node):
-			return [node, path_node]
-		path_node += "../"
-		node = node.get_parent()
-		if node == null:
-			break
-	
-	print("_auto_find_node_use_shader: can't find valid node use shader")
-	return [null, ""]
-
-
-func _check_repeat_or_finish():
-	_current_delay_each_repeat_time = delay_each_repeat
-	if repeat_forever:
-		return
-		
-	_repeat_count += 1
-	if _repeat_count >= repeat:
-		_finished()
-
-
-func _finished():
-	set_process(false)
-	if inactive_when_finished:
-		self.is_active = false
+	var shader_player = self._shader_player
+	if shader_player != null:
+		shader_player._play(self, duration, repeat, delay_each_repeat, is_reverse, inactive_when_finished)
 
 
 func _update_value_if_need(raw_value: float, raw_delta: float):
+	if duration == 0:
+		return
+	
 	var value = raw_value
-	var eased_value = raw_value / self.duration
+	var eased_value = raw_value / duration
 	var delta = raw_delta
 	
 	if ease_func_value != null:
 		eased_value = ease(eased_value, ease_func_value)
-		value = eased_value * self.duration
-		delta = (eased_value - self._old_eased_value) * self.duration
+		value = eased_value * duration
+		delta = (eased_value - self._old_eased_value) * duration
 		self._old_eased_value = eased_value
 	
 	elif time_func != null:
 		eased_value = time_func.interpolate(eased_value)
-		value = eased_value * self.duration
-		delta = (eased_value - self._old_eased_value) * self.duration
+		value = eased_value * duration
+		delta = (eased_value - self._old_eased_value) * duration
 		self._old_eased_value = eased_value
 	
 	if self.is_reverse:
-		value = self.duration - value
+		value = duration - value
 		eased_value = 1.0 - eased_value
 	
 	_update(value, eased_value, delta)
-
-
-func _reset_time_value():
-	self._current_time = 0
-	self._old_eased_value = 0
-
-
-func _reset():
-	_reset_time_value()
-	_current_delay_each_repeat_time = 0
-	_repeat_count = 0
 
 
 ### VIRTUAL FUNC ===============================================================
@@ -253,28 +138,23 @@ func _set_fade(value: float):
 	_set_shader_f_value("fade", value)
 
 
-func _set_node_path(path: NodePath):
-	node_path = path
-	if path == null or not self._ready:
-		return
-	
-	var node = get_node(path)
-	
-	if node != null:
-		node_use_shader = node
-	else:
-		node_path = null
+func _get_shader_player():
+	var parrent = get_parent()
+	if parrent is EzShaderPlayer:
+		return parrent
+	return null
 
 
-func _set_active(value: bool):
+func _set_active(value: bool, need_callback: bool = true):
 	is_active = value
 	
-	if node_use_shader == null or not self._ready:
+	if not need_callback:
 		return
 	
-	if value:
-		node_use_shader.material = shader_meterial
-	elif node_use_shader.material == shader_meterial:
-		node_use_shader.material = null
+	# Call back to Shader_Player to set activating node
+	var shader_player = self._shader_player
+	if shader_player != null:
+		shader_player._update_shader_active(self, value)
+
 
 ### ============================================================================
