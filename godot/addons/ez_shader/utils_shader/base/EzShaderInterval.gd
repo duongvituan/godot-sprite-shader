@@ -2,12 +2,8 @@ class_name EzShaderInterval extends EzShader
 
 export(float, 0, 1, 0.001) var process_value: float = 0.0 setget _set_process_value
 
-#export(float, 0, 1, 0.001) var process_value2: float = 0.0 setget _set_process_value
 
 func _set_process_value(value):
-#	print(value)
-#	if value == null:
-#		value = 0.0
 	process_value = value
 	_set_shader_f_value("process_value", value)
 
