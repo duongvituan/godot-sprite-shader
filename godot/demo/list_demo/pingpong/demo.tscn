@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://addons/ez_shader/utils_shader/EzPingPongMove.gd" type="Script" id=1]
 [ext_resource path="res://addons/ez_shader/utils_shader/EzPingPongZoom.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://demo/list_demo/pingpong/demo.gd" type="Script" id=4]
 [ext_resource path="res://demo/objects/back_ground.tscn" type="PackedScene" id=5]
 [ext_resource path="res://demo/objects/char_viewport.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/ez_shader/utils_shader/base/EzShaderPlayer.gd" type="Script" id=7]
 
 [node name="demo" type="Node2D"]
 script = ExtResource( 4 )
@@ -19,22 +20,31 @@ position = Vector2( 165.515, 437.434 )
 position = Vector2( 363.121, 435.745 )
 title = "PingPong Move"
 
-[node name="EzPingPongMove" type="Node" parent="Char2"]
+[node name="EzShaderPlayer" type="Node" parent="Char2"]
+script = ExtResource( 7 )
+node_path = NodePath("../ViewportContainer")
+
+[node name="EzPingPongMove" type="Node" parent="Char2/EzShaderPlayer"]
 script = ExtResource( 1 )
-node_path = "../ViewportContainer"
 
 [node name="Char3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 565.792, 432.367 )
 title = "PingPong Rotate"
 
-[node name="EzPingPongRotate" type="Node" parent="Char3"]
+[node name="EzShaderPlayer" type="Node" parent="Char3"]
+script = ExtResource( 7 )
+node_path = NodePath("../ViewportContainer")
+
+[node name="EzPingPongRotate" type="Node" parent="Char3/EzShaderPlayer"]
 script = ExtResource( 3 )
-node_path = "../ViewportContainer"
 
 [node name="Char4" parent="." instance=ExtResource( 6 )]
 position = Vector2( 788.732, 430.678 )
 title = "PingPong Zoom"
 
-[node name="EzPingPongZoom" type="Node" parent="Char4"]
+[node name="EzShaderPlayer" type="Node" parent="Char4"]
+script = ExtResource( 7 )
+node_path = NodePath("../ViewportContainer")
+
+[node name="EzPingPongZoom" type="Node" parent="Char4/EzShaderPlayer"]
 script = ExtResource( 2 )
-node_path = "../ViewportContainer"

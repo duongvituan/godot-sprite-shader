@@ -5,5 +5,5 @@ func get_name() -> String:
 
 
 func _ready():
-	$CharOutline/EzOutline.is_active = true
-	$CharOutlineEmpty/EzOutlineEmpty.is_active = true
+	$CharOutline/EzShaderPlayer/EzOutline.is_active = true
+	$CharOutlineEmpty/EzShaderPlayer/EzOutlineEmpty.is_active = true
