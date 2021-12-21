@@ -20,10 +20,10 @@ script = ExtResource( 1 )
 [node name="CanvasLayer" parent="." instance=ExtResource( 5 )]
 
 [node name="Char" parent="." instance=ExtResource( 2 )]
-position = Vector2( 100.393, 435.804 )
+position = Vector2( 96, 418 )
 
 [node name="Char2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 252.981, 434.607 )
+position = Vector2( 257, 416 )
 title = "Transform Gold"
 
 [node name="EzShaderPlayer" type="Node" parent="Char2"]
@@ -34,7 +34,7 @@ node_path = NodePath("../ViewportContainer")
 script = ExtResource( 3 )
 
 [node name="Char3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 415.355, 420.785 )
+position = Vector2( 434, 417 )
 title = "Transform Metal"
 
 [node name="EzShaderPlayer" type="Node" parent="Char3"]
@@ -45,7 +45,7 @@ node_path = NodePath("../ViewportContainer")
 script = ExtResource( 4 )
 
 [node name="Char4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 575.71, 413.766 )
+position = Vector2( 605, 415 )
 title = "Transform Ghost"
 
 [node name="EzShaderPlayer" type="Node" parent="Char4"]
@@ -56,7 +56,7 @@ node_path = NodePath("../ViewportContainer")
 script = ExtResource( 6 )
 
 [node name="Char5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 745.243, 416.178 )
+position = Vector2( 760, 415 )
 title = "Transform Freeze"
 
 [node name="EzShaderPlayer" type="Node" parent="Char5"]
@@ -67,7 +67,7 @@ node_path = NodePath("../ViewportContainer")
 script = ExtResource( 7 )
 
 [node name="Char6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 911.187, 417.981 )
+position = Vector2( 930, 417 )
 title = "Transform Burn"
 
 [node name="EzShaderPlayer" type="Node" parent="Char6"]

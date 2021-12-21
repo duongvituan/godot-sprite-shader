@@ -8,7 +8,7 @@ export(float, -1, 1, 0.001) var offset_x: float = 0 setget _set_offset_x
 # If you use this shader for Viewport then offset_y value can be -0.15
 export(float, -1, 1, 0.001) var offset_y: float = -0.85 setget _set_offset_y
 
-export(int, 1, 256) var dust_size: int = 64 setget _set_dust_size
+export(float, 1, 256, 0.5) var dust_size: float = 64 setget _set_dust_size
 
 
 func _load_shader():
@@ -24,6 +24,7 @@ func _set_offset_y(value):
 	_set_shader_f_value("offset_y", value)
 
 func _set_dust_size(value):
-	dust_size = value
-	_set_shader_f_value("dust_size", float(value))
+	var v = floor(value)
+	dust_size = v
+	_set_shader_f_value("dust_size", float(v))
 

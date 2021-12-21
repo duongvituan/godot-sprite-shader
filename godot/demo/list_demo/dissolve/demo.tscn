@@ -21,10 +21,10 @@ script = ExtResource( 4 )
 [node name="CanvasLayer" parent="." instance=ExtResource( 2 )]
 
 [node name="Char" parent="." instance=ExtResource( 3 )]
-position = Vector2( 185, 429 )
+position = Vector2( 165, 415 )
 
 [node name="Char2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 588, 426 )
+position = Vector2( 590, 416 )
 title = "Dissolve Dust"
 
 [node name="EzShaderPlayer" type="Node" parent="Char2"]
@@ -33,9 +33,10 @@ node_path = NodePath("../ViewportContainer")
 
 [node name="EzDissolveDust" type="Node" parent="Char2/EzShaderPlayer"]
 script = ExtResource( 1 )
+dust_size = 128.0
 
 [node name="Char3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 808, 425 )
+position = Vector2( 812, 418 )
 title = "Dissolve Burn"
 
 [node name="EzShaderPlayer" type="Node" parent="Char3"]
@@ -46,7 +47,7 @@ node_path = NodePath("../ViewportContainer")
 script = ExtResource( 6 )
 
 [node name="Char4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 379, 426 )
+position = Vector2( 379, 417 )
 title = "Dissolve Circle"
 
 [node name="EzShaderPlayer" type="Node" parent="Char4"]

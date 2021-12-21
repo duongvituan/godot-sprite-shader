@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stand.png-f3d80883f42d0bdcba653544f50a583b.stex"
+path="res://.import/robot.png-621dc10391c151fec57ca634c8c2d07d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://demo/assets/objects/stand.png"
-dest_files=[ "res://.import/stand.png-f3d80883f42d0bdcba653544f50a583b.stex" ]
+source_file="res://demo/assets/objects/robot.png"
+dest_files=[ "res://.import/robot.png-621dc10391c151fec57ca634c8c2d07d.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

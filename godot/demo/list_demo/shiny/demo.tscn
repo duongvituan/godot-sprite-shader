@@ -12,10 +12,10 @@ script = ExtResource( 1 )
 [node name="CanvasLayer" parent="." instance=ExtResource( 2 )]
 
 [node name="Char" parent="." instance=ExtResource( 3 )]
-position = Vector2( 177, 422 )
+position = Vector2( 137, 417 )
 
 [node name="Char2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 339, 421 )
+position = Vector2( 316, 418 )
 title = "Static Shiny"
 
 [node name="EzShaderPlayer" type="Node" parent="Char2"]
@@ -27,7 +27,7 @@ script = ExtResource( 4 )
 process_value = 0.5
 
 [node name="Char3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 509, 425 )
+position = Vector2( 518, 421 )
 title = "Shiny To Left"
 
 [node name="EzShaderPlayer" type="Node" parent="Char3"]
@@ -38,7 +38,7 @@ node_path = NodePath("../ViewportContainer")
 script = ExtResource( 4 )
 
 [node name="Char4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 676, 427 )
+position = Vector2( 695, 420 )
 title = "Shiny To Right"
 
 [node name="EzShaderPlayer" type="Node" parent="Char4"]
@@ -49,7 +49,7 @@ node_path = NodePath("../ViewportContainer")
 script = ExtResource( 4 )
 
 [node name="Char5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 845, 423 )
+position = Vector2( 876, 419 )
 title = "Shiny Swing"
 
 [node name="EzShaderPlayer" type="Node" parent="Char5"]

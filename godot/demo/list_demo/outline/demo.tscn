@@ -13,26 +13,26 @@ script = ExtResource( 1 )
 [node name="CanvasLayer" parent="." instance=ExtResource( 3 )]
 
 [node name="Char" parent="." instance=ExtResource( 4 )]
-position = Vector2( 319, 435 )
+position = Vector2( 248, 409 )
 
 [node name="CharOutline" parent="." instance=ExtResource( 4 )]
-position = Vector2( 490, 436 )
+position = Vector2( 482, 410 )
 title = "Outline"
 
 [node name="EzShaderPlayer" type="Node" parent="CharOutline"]
 script = ExtResource( 6 )
-node_path = null
+node_path = NodePath("..")
 
 [node name="EzOutline" type="Node" parent="CharOutline/EzShaderPlayer"]
 script = ExtResource( 2 )
 
 [node name="CharOutlineEmpty" parent="." instance=ExtResource( 4 )]
-position = Vector2( 664, 435 )
+position = Vector2( 739, 409 )
 title = "Outline Empty"
 
 [node name="EzShaderPlayer" type="Node" parent="CharOutlineEmpty"]
 script = ExtResource( 6 )
-node_path = null
+node_path = NodePath("..")
 
 [node name="EzOutlineEmpty" type="Node" parent="CharOutlineEmpty/EzShaderPlayer"]
 script = ExtResource( 5 )
