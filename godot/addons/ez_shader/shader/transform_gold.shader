@@ -7,7 +7,7 @@ uniform float fade : hint_range(0.0, 1.0) = 1.0;
 // Approximates luminance from an RGB value
 float calc_luminance(vec3 color)
 {
-    return dot(color, vec3(0.2126, 0.7152, 0.0721));
+    return dot(color, vec3( 0.299, 0.587, 0.114));
 }
 
 float mark_light(vec2 uv, float value)
@@ -23,9 +23,9 @@ vec4 transform_gold(vec2 uv, sampler2D txt, float value)
 	vec4 txt_color = texture(txt, uv);
 	float luminance = calc_luminance(txt_color.rbg);
 	vec3 metal = vec3(luminance);
-	metal.r = luminance * pow(1.5 * luminance, 8.0);
-	metal.g = luminance * pow(1.5 * luminance, 8.0);
-	metal.b = luminance * pow(0.75 * luminance, 8.0);
+	metal.r = luminance * pow(1.5 * luminance, 3.0);
+	metal.g = luminance * pow(1.5 * luminance, 3.0);
+	metal.b = luminance * pow(0.75 * luminance, 3.0);
 	
 	vec2 co = uv * 2.5;
 	float n = mark_light(uv, value);
