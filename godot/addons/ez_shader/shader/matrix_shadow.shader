@@ -24,7 +24,7 @@ float rand2_with_range(vec2 co, float m, float M, float random_seed)
 	return (M - m) * r1 + r1;
 }
 
-vec3 rain(vec2 uv, vec4 color, float value, float number_row, float number_column, int di, float time)
+vec3 rain(vec2 uv, vec4 color, float _matrix_value, float number_row, float number_column, int di, float time)
 {
 	float column_size = 1.0 / number_column;
 	float row_size = 1.0 / number_row;
@@ -35,7 +35,7 @@ vec3 rain(vec2 uv, vec4 color, float value, float number_row, float number_colum
 	
 	float row_id =  uv.y - mod(uv.y, row_size);
 	float y = (di > 0) ? fract(row_id + time * speed + offset) : fract(1.0 - row_id + time * speed + offset);
-	return tint_color.rgb * (1.0 / ((26.0 - matrix_value) * y));
+	return tint_color.rgb * (1.0 / ((26.0 - _matrix_value) * y));
 }
 
 vec2 randomIndexChar(vec2 char_size, vec2 blockID, float time)

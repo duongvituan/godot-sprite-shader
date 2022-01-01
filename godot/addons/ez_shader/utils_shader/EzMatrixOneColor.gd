@@ -4,7 +4,7 @@ class_name EzMatrixOneColor extends EzShader
 export(int) var direction = 0 setget _set_dicrection
 export(float, 1, 128, 0.5) var row: float = 12.0 setget _set_row
 export(float, 1, 128, 0.5) var column: float = 12.0 setget _set_column
-export(float, 0.0, 10.0, 0.01) var maxtrix_value: float = 8.5 setget _set_maxtrix_value
+export(float, 1.0, 25.0, 0.1) var matrix_value: float = 20.0 setget _set_matrix_value
 export(float, 0.0, 20.0, 0.01) var line_thickness: float = 5.0 setget _set_line_thickness
 
 export(int, 1, 128) var number_row_char_texture: int = 3 setget _set_number_row_char_texture
@@ -42,9 +42,9 @@ func _set_tint_color(value):
 	tint_color = value
 	_set_shader_color_value("tint_color", value)
 
-func _set_maxtrix_value(value):
-	maxtrix_value = value
-	_set_shader_f_value("maxtrix_value", value)
+func _set_matrix_value(value):
+	matrix_value = value
+	_set_shader_f_value("matrix_value", value)
 
 func _set_line_thickness(value):
 	line_thickness = value

@@ -27,7 +27,6 @@ node_path = NodePath("../ViewportContainer")
 [node name="EzMatrix" type="Node" parent="Char2/EzShaderPlayer"]
 script = ExtResource( 4 )
 is_active = true
-block_size = 12.0
 
 [node name="Char3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 644, 413 )
@@ -39,6 +38,7 @@ node_path = NodePath("../ViewportContainer")
 
 [node name="EzMatrixGradient" type="Node" parent="Char3/EzShaderPlayer"]
 script = ExtResource( 6 )
+is_active = true
 
 [node name="Char4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 852, 411 )
@@ -50,3 +50,4 @@ node_path = NodePath("../ViewportContainer")
 
 [node name="EzMatrixOneColor" type="Node" parent="Char4/EzShaderPlayer"]
 script = ExtResource( 7 )
+is_active = true
