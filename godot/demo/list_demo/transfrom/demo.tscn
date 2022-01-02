@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://demo/list_demo/transfrom/demo.gd" type="Script" id=1]
 [ext_resource path="res://demo/objects/char_viewport.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://addons/ez_shader/utils_shader/EzTransformFreeze.gd" type="Script" id=7]
 [ext_resource path="res://addons/ez_shader/utils_shader/EzTransformBurn.gd" type="Script" id=8]
 [ext_resource path="res://addons/ez_shader/utils_shader/base/EzShaderPlayer.gd" type="Script" id=9]
+[ext_resource path="res://demo/assets/objects/BG2.png" type="Texture" id=10]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -19,12 +20,18 @@ script = ExtResource( 1 )
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 5 )]
 
+[node name="TextureRect" parent="CanvasLayer" index="0"]
+texture = ExtResource( 10 )
+
 [node name="Char" parent="." instance=ExtResource( 2 )]
 position = Vector2( 96, 418 )
 
 [node name="Char2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 257, 416 )
 title = "Transform Gold"
+
+[node name="Label" parent="Char2" index="0"]
+text = "Transfrom Gold"
 
 [node name="EzShaderPlayer" type="Node" parent="Char2"]
 script = ExtResource( 9 )
@@ -37,6 +44,9 @@ script = ExtResource( 3 )
 position = Vector2( 434, 417 )
 title = "Transform Metal"
 
+[node name="Label" parent="Char3" index="0"]
+text = "Transform Metal"
+
 [node name="EzShaderPlayer" type="Node" parent="Char3"]
 script = ExtResource( 9 )
 node_path = NodePath("../ViewportContainer")
@@ -47,6 +57,9 @@ script = ExtResource( 4 )
 [node name="Char4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 605, 415 )
 title = "Transform Ghost"
+
+[node name="Label" parent="Char4" index="0"]
+text = "Transform Ghost"
 
 [node name="EzShaderPlayer" type="Node" parent="Char4"]
 script = ExtResource( 9 )
@@ -59,6 +72,9 @@ script = ExtResource( 6 )
 position = Vector2( 760, 415 )
 title = "Transform Freeze"
 
+[node name="Label" parent="Char5" index="0"]
+text = "Transform Freeze"
+
 [node name="EzShaderPlayer" type="Node" parent="Char5"]
 script = ExtResource( 9 )
 node_path = NodePath("../ViewportContainer")
@@ -70,6 +86,9 @@ script = ExtResource( 7 )
 position = Vector2( 930, 417 )
 title = "Transform Burn"
 
+[node name="Label" parent="Char6" index="0"]
+text = "Transform Burn"
+
 [node name="EzShaderPlayer" type="Node" parent="Char6"]
 script = ExtResource( 9 )
 node_path = NodePath("../ViewportContainer")
@@ -79,3 +98,10 @@ script = ExtResource( 8 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
+
+[editable path="CanvasLayer"]
+[editable path="Char2"]
+[editable path="Char3"]
+[editable path="Char4"]
+[editable path="Char5"]
+[editable path="Char6"]

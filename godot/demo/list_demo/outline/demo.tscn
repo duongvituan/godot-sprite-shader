@@ -19,6 +19,9 @@ position = Vector2( 248, 409 )
 position = Vector2( 482, 410 )
 title = "Outline"
 
+[node name="Label" parent="CharOutline" index="1"]
+text = "Outline"
+
 [node name="EzShaderPlayer" type="Node" parent="CharOutline"]
 script = ExtResource( 6 )
 node_path = NodePath("..")
@@ -30,9 +33,15 @@ script = ExtResource( 2 )
 position = Vector2( 739, 409 )
 title = "Outline Empty"
 
+[node name="Label" parent="CharOutlineEmpty" index="1"]
+text = "Outline Empty"
+
 [node name="EzShaderPlayer" type="Node" parent="CharOutlineEmpty"]
 script = ExtResource( 6 )
 node_path = NodePath("..")
 
 [node name="EzOutlineEmpty" type="Node" parent="CharOutlineEmpty/EzShaderPlayer"]
 script = ExtResource( 5 )
+
+[editable path="CharOutline"]
+[editable path="CharOutlineEmpty"]

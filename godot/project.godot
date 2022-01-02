@@ -55,11 +55,6 @@ _global_script_classes=[ {
 "path": "res://addons/ez_shader/utils_shader/EzHolographic.gd"
 }, {
 "base": "EzShader",
-"class": "EzMatrix",
-"language": "GDScript",
-"path": "res://addons/ez_shader/utils_shader/EzMatrixShadow.gd"
-}, {
-"base": "EzShader",
 "class": "EzMatrixGradient",
 "language": "GDScript",
 "path": "res://addons/ez_shader/utils_shader/EzMatrixGradient.gd"
@@ -68,6 +63,11 @@ _global_script_classes=[ {
 "class": "EzMatrixOneColor",
 "language": "GDScript",
 "path": "res://addons/ez_shader/utils_shader/EzMatrixOneColor.gd"
+}, {
+"base": "EzShader",
+"class": "EzMatrixShadow",
+"language": "GDScript",
+"path": "res://addons/ez_shader/utils_shader/EzMatrixShadow.gd"
 }, {
 "base": "EzShader",
 "class": "EzOneColor",
@@ -159,9 +159,9 @@ _global_script_class_icons={
 "EzDoodle": "",
 "EzGlitch": "",
 "EzHolographic": "",
-"EzMatrix": "",
 "EzMatrixGradient": "",
 "EzMatrixOneColor": "",
+"EzMatrixShadow": "",
 "EzOneColor": "",
 "EzOutline": "",
 "EzOutlineEmpty": "",

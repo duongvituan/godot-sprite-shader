@@ -20,6 +20,9 @@ position = Vector2( 243, 410 )
 position = Vector2( 488, 411 )
 title = "Holographic"
 
+[node name="Label" parent="Char2" index="1"]
+text = "Holographic"
+
 [node name="EzShaderPlayer" type="Node" parent="Char2"]
 script = ExtResource( 4 )
 node_path = NodePath("..")
@@ -31,6 +34,9 @@ script = ExtResource( 3 )
 position = Vector2( 767, 418 )
 title = "Glitch"
 
+[node name="Label" parent="Char3" index="0"]
+text = "Glitch"
+
 [node name="EzShaderPlayer" type="Node" parent="Char3"]
 script = ExtResource( 4 )
 node_path = NodePath("../ViewportContainer")
@@ -39,3 +45,5 @@ node_path = NodePath("../ViewportContainer")
 script = ExtResource( 6 )
 
 [editable path="CanvasLayer"]
+[editable path="Char2"]
+[editable path="Char3"]

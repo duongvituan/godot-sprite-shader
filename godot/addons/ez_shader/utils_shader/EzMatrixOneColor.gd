@@ -7,11 +7,13 @@ export(float, 1, 128, 0.5) var column: float = 12.0 setget _set_column
 export(float, 1.0, 25.0, 0.1) var matrix_value: float = 20.0 setget _set_matrix_value
 export(float, 0.0, 20.0, 0.01) var line_thickness: float = 5.0 setget _set_line_thickness
 
+# This is row and column characters of texture, for this chars_texture3x3.png is 3x3 character
+# If you change chars_tex, you need to change number_row_char_texture and number_column_char_texture
 export(int, 1, 128) var number_row_char_texture: int = 3 setget _set_number_row_char_texture
 export(int, 1, 128) var number_column_char_texture: int = 3 setget _set_number_column_char_texture
 
 export var tint_color: Color = Color(0.12, 0.67, 0.92, 1.0) setget _set_tint_color
-export var chars_tex = preload("res://addons/ez_shader/noise/char_9x9.png") setget _set_chars_tex
+export var chars_tex = preload("res://addons/ez_shader/noise/chars_texture3x3.png") setget _set_chars_tex
 
 func _load_shader():
 	return load(SHADER_FOLDER_BASE + "matrix_one_color.shader")

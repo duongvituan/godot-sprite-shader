@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chars_texture.png-33013967e1748dae7f03c25c1357cad9.stex"
+path="res://.import/BG2.png-feb4736e86d771936ce669420785b6e2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/ez_shader/noise/chars_texture.png"
-dest_files=[ "res://.import/chars_texture.png-33013967e1748dae7f03c25c1357cad9.stex" ]
+source_file="res://demo/assets/objects/BG2.png"
+dest_files=[ "res://.import/BG2.png-feb4736e86d771936ce669420785b6e2.stex" ]
 
 [params]
 

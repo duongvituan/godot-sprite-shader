@@ -28,6 +28,9 @@ position = Vector2( 134, 415 )
 position = Vector2( 330, 411 )
 title = "Dissolve Dust"
 
+[node name="Label" parent="Char2" index="0"]
+text = "Dissolve Dust"
+
 [node name="EzShaderPlayer" type="Node" parent="Char2"]
 script = ExtResource( 8 )
 node_path = NodePath("../ViewportContainer")
@@ -40,6 +43,9 @@ dust_size = 128.0
 position = Vector2( 507, 411 )
 title = "Dissolve Burn"
 
+[node name="Label" parent="Char3" index="0"]
+text = "Dissolve Burn"
+
 [node name="EzShaderPlayer" type="Node" parent="Char3"]
 script = ExtResource( 8 )
 node_path = NodePath("../ViewportContainer")
@@ -51,6 +57,9 @@ script = ExtResource( 6 )
 position = Vector2( 705, 413 )
 title = "Dissolve Circle"
 
+[node name="Label" parent="Char4" index="0"]
+text = "Dissolve Circle"
+
 [node name="EzShaderPlayer" type="Node" parent="Char4"]
 script = ExtResource( 8 )
 node_path = NodePath("../ViewportContainer")
@@ -61,6 +70,9 @@ script = ExtResource( 7 )
 [node name="Char5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 900, 414 )
 title = "Dissolve Twist"
+
+[node name="Label" parent="Char5" index="0"]
+text = "Dissolve Twist"
 
 [node name="EzShaderPlayer" type="Node" parent="Char5"]
 script = ExtResource( 8 )
@@ -79,3 +91,8 @@ text = "Press Enter to start animation to Dust"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[editable path="Char2"]
+[editable path="Char3"]
+[editable path="Char4"]
+[editable path="Char5"]

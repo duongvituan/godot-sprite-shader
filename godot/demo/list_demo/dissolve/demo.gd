@@ -47,4 +47,4 @@ func start_to_dust():
 		$Char4.play_sprite_animation()
 		
 		$Char5/EzShaderPlayer/EzDissolveTwist.play_reverse(1.0, false)
-		$Char5.stop_sprite_animation()
+		$Char5.play_sprite_animation()

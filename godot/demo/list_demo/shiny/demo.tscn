@@ -18,6 +18,9 @@ position = Vector2( 137, 417 )
 position = Vector2( 316, 418 )
 title = "Static Shiny"
 
+[node name="Label" parent="Char2" index="0"]
+text = "Shiny Static"
+
 [node name="EzShaderPlayer" type="Node" parent="Char2"]
 script = ExtResource( 5 )
 node_path = NodePath("../ViewportContainer")
@@ -30,6 +33,9 @@ process_value = 0.5
 position = Vector2( 518, 421 )
 title = "Shiny To Left"
 
+[node name="Label" parent="Char3" index="0"]
+text = "Shiny To Left"
+
 [node name="EzShaderPlayer" type="Node" parent="Char3"]
 script = ExtResource( 5 )
 node_path = NodePath("../ViewportContainer")
@@ -40,6 +46,9 @@ script = ExtResource( 4 )
 [node name="Char4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 695, 420 )
 title = "Shiny To Right"
+
+[node name="Label" parent="Char4" index="0"]
+text = "Shiny To Right"
 
 [node name="EzShaderPlayer" type="Node" parent="Char4"]
 script = ExtResource( 5 )
@@ -52,9 +61,17 @@ script = ExtResource( 4 )
 position = Vector2( 876, 419 )
 title = "Shiny Swing"
 
+[node name="Label" parent="Char5" index="0"]
+text = "Shiny Swing"
+
 [node name="EzShaderPlayer" type="Node" parent="Char5"]
 script = ExtResource( 5 )
 node_path = NodePath("../ViewportContainer")
 
 [node name="EzShinyFx" type="Node" parent="Char5/EzShaderPlayer"]
 script = ExtResource( 4 )
+
+[editable path="Char2"]
+[editable path="Char3"]
+[editable path="Char4"]
+[editable path="Char5"]
