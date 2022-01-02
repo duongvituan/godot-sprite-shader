@@ -26,7 +26,7 @@ vec4 transform_sprite(sampler2D sampler, vec2 uv, float value)
 }
 
 
-vec4 circle_fade(sampler2D sampler, vec2 uv, vec4 _line_color, vec4 _in_color, vec2 size, float value)
+vec4 dissolve_vfx(sampler2D sampler, vec2 uv, vec4 _line_color, vec4 _in_color, vec2 size, float value)
 {
 	float v = smoothstep(0.0, 1.0, (1.0 - value) * 2.0);
 	vec2 outline_size = vec2(0.0, 0.0);
@@ -60,7 +60,7 @@ vec4 circle_fade(sampler2D sampler, vec2 uv, vec4 _line_color, vec4 _in_color, v
 void fragment()
 {
 	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
-	vec4 output_color = circle_fade(TEXTURE, UV, line_color, in_color, size, 1.0 - process_value);
+	vec4 output_color = dissolve_vfx(TEXTURE, UV, line_color, in_color, size, 1.0 - process_value);
 
 	output_color.a *= fade;
 	COLOR = output_color;

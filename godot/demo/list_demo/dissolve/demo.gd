@@ -30,6 +30,10 @@ func start_to_dust():
 		# Dissolve with circle
 		$Char4/EzShaderPlayer/EzDissolveCircle.play(1.0, false)
 		$Char4.stop_sprite_animation()
+		
+		# Dissolve twist
+		$Char5/EzShaderPlayer/EzDissolveTwist.play(1.0, false)
+		$Char5.stop_sprite_animation()
 	else:
 		is_active = false
 		$Char2/EzShaderPlayer/EzDissolveDust.offset_y = -0.15
@@ -41,3 +45,6 @@ func start_to_dust():
 		
 		$Char4/EzShaderPlayer/EzDissolveCircle.play_reverse(1.0, false)
 		$Char4.play_sprite_animation()
+		
+		$Char5/EzShaderPlayer/EzDissolveTwist.play_reverse(1.0, false)
+		$Char5.stop_sprite_animation()

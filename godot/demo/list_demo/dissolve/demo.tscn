@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://addons/ez_shader/utils_shader/EzDissolveDust.gd" type="Script" id=1]
 [ext_resource path="res://demo/objects/back_ground.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://addons/ez_shader/utils_shader/EzDissolveBurn.gd" type="Script" id=6]
 [ext_resource path="res://addons/ez_shader/utils_shader/EzDissolveCircle.gd" type="Script" id=7]
 [ext_resource path="res://addons/ez_shader/utils_shader/base/EzShaderPlayer.gd" type="Script" id=8]
+[ext_resource path="res://addons/ez_shader/utils_shader/EzDissolveTwist.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -21,10 +22,10 @@ script = ExtResource( 4 )
 [node name="CanvasLayer" parent="." instance=ExtResource( 2 )]
 
 [node name="Char" parent="." instance=ExtResource( 3 )]
-position = Vector2( 165, 415 )
+position = Vector2( 134, 415 )
 
 [node name="Char2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 590, 416 )
+position = Vector2( 330, 411 )
 title = "Dissolve Dust"
 
 [node name="EzShaderPlayer" type="Node" parent="Char2"]
@@ -36,7 +37,7 @@ script = ExtResource( 1 )
 dust_size = 128.0
 
 [node name="Char3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 812, 418 )
+position = Vector2( 507, 411 )
 title = "Dissolve Burn"
 
 [node name="EzShaderPlayer" type="Node" parent="Char3"]
@@ -47,7 +48,7 @@ node_path = NodePath("../ViewportContainer")
 script = ExtResource( 6 )
 
 [node name="Char4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 379, 417 )
+position = Vector2( 705, 413 )
 title = "Dissolve Circle"
 
 [node name="EzShaderPlayer" type="Node" parent="Char4"]
@@ -56,6 +57,17 @@ node_path = NodePath("../ViewportContainer")
 
 [node name="EzDissolveCircle" type="Node" parent="Char4/EzShaderPlayer"]
 script = ExtResource( 7 )
+
+[node name="Char5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 900, 414 )
+title = "Dissolve Twist"
+
+[node name="EzShaderPlayer" type="Node" parent="Char5"]
+script = ExtResource( 8 )
+node_path = NodePath("../ViewportContainer")
+
+[node name="EzDissolveTwist" type="Node" parent="Char5/EzShaderPlayer"]
+script = ExtResource( 9 )
 
 [node name="InfoLabel" type="Label" parent="."]
 margin_left = 238.0
