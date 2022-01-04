@@ -1,5 +1,7 @@
 class_name EzShader extends Node
 
+signal finished()
+signal canceled()
 
 const SHADER_FOLDER_BASE = "res://addons/ez_shader/shader/"
 

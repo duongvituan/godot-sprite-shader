@@ -151,12 +151,12 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBox3"]
 margin_top = 2.0
-margin_right = 40.0
+margin_right = 49.0
 margin_bottom = 16.0
-text = "Reset:"
+text = "Action::"
 
 [node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBox3"]
-margin_left = 44.0
-margin_right = 60.0
+margin_left = 53.0
+margin_right = 69.0
 margin_bottom = 19.0
 texture = ExtResource( 4 )

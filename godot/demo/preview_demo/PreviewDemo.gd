@@ -16,7 +16,8 @@ func _input(event):
 	elif event.is_action_pressed("previous_demo"):
 		on_previous()
 	elif event.is_action_pressed("reset_demo"):
-		on_reset()
+		pass
+#		on_reset()
 
 func _set_demo_screen(demo_screen: DemoScreen):
 	demo_container.demo_screen = demo_screen

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://demo/assets/objects/Bullet.png" type="Texture" id=1]
+[ext_resource path="res://demo/objects/bullet/bullet_normal.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 83.0
+
+[node name="Butllet" type="Area2D"]
+scale = Vector2( 0.3, 0.3 )
+collision_layer = 0
+collision_mask = 8
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

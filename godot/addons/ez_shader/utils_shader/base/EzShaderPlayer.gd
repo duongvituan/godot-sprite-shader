@@ -124,6 +124,7 @@ func _finished():
 	if node_use_shader.material != animating_shader.shader_meterial:
 		return
 	
+	animating_shader.emit_signal("finished")
 	animating_shader = null
 	
 	if inactive_when_finished:
@@ -219,6 +220,8 @@ func _update_shader_active(ez_shader, is_active):
 	# Switch active to other shader
 	if is_active:
 		activating_shader._set_active(false, false)
+		if activating_shader != ez_shader:
+			activating_shader.emit_signal("canceled")
 		activating_shader = ez_shader
 		node_use_shader.material = activating_shader.shader_meterial
 		activating_shader._set_active(true, false)
