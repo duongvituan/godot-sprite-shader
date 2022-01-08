@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://demo/objects/char_viewport.tscn" type="PackedScene" id=1]
+[ext_resource path="res://demo/assets/font/LilitaOne-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://demo/objects/character/megaman.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 56.5, 93.5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 2 )
 
 [node name="MegaMan" type="KinematicBody2D"]
 script = ExtResource( 4 )
@@ -21,18 +26,41 @@ shape = SubResource( 1 )
 [node name="MuzzlePosition" type="Position2D" parent="."]
 position = Vector2( 76, 2 )
 
-[node name="Bullet" type="Node2D" parent="."]
+[node name="SkillButtons" type="Node2D" parent="."]
+position = Vector2( -79, -164 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="OptionButton" type="OptionButton" parent="Bullet"]
-margin_left = -57.0
-margin_top = -151.0
-margin_right = 61.0
-margin_bottom = -131.0
-text = "Normal Bullet"
-items = [ "Normal Bullet", null, false, 0, null, "Freeze Bullet", null, false, 1, null, "Fire Bullet", null, false, 2, null ]
-selected = 0
+[node name="HBoxContainer" type="HBoxContainer" parent="SkillButtons"]
+margin_left = -64.0
+margin_right = 228.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Button" type="Button" parent="SkillButtons/HBoxContainer"]
+margin_right = 94.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Normal"
+
+[node name="Button2" type="Button" parent="SkillButtons/HBoxContainer"]
+margin_left = 98.0
+margin_right = 193.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Freeze"
+
+[node name="Button3" type="Button" parent="SkillButtons/HBoxContainer"]
+margin_left = 197.0
+margin_right = 292.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Fire"
 
 [editable path="Char"]

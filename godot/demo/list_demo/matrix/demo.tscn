@@ -14,7 +14,7 @@
 [ext_resource path="res://addons/ez_shader/shader/matrix_one_color.shader" type="Shader" id=12]
 [ext_resource path="res://demo/assets/objects/BG2.png" type="Texture" id=13]
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 11 )
 shader_param/direction = 0
 shader_param/row = 16.0
@@ -70,7 +70,7 @@ title = "Matrix Shadow"
 text = "Matrix Shadow"
 
 [node name="ViewportContainer" parent="Char2" index="1"]
-material = SubResource( 4 )
+material = SubResource( 1 )
 
 [node name="EzShaderPlayer" type="Node" parent="Char2"]
 script = ExtResource( 1 )

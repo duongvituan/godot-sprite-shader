@@ -1,7 +1,8 @@
 shader_type canvas_item;
 
 
-uniform float process_value : hint_range(0.0, 1.0) = 0.0;
+uniform float offset: hint_range(0, 100) = 0;
+uniform float speed : hint_range(-10, 10) = 1;
 uniform float zoom : hint_range(0.1 , 4.0) = 1.0;
 uniform float center_x : hint_range(-1.0 , 2.0) = 0.5;
 uniform float center_y : hint_range(-1.0 , 2.0) = 0.5;
@@ -22,7 +23,7 @@ vec2 zoom_uv(vec2 uv, float _zoom, float posx, float posy, float _intensity, flo
 
 void fragment()
 {
-	float value = process_value * 6.28318;
+	float value = offset + TIME * speed * 7.5;
 	vec2 uv = zoom_uv(UV, zoom, center_x, center_y, intensity, value);
 	uv = mix(UV, uv, vec2(smooth_value));
 	vec4 output_color = texture(TEXTURE, uv);

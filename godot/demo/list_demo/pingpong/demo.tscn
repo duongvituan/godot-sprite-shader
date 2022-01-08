@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://addons/ez_shader/utils_shader/EzPingPongMove.gd" type="Script" id=1]
 [ext_resource path="res://addons/ez_shader/utils_shader/EzPingPongZoom.gd" type="Script" id=2]
@@ -7,6 +7,42 @@
 [ext_resource path="res://demo/objects/back_ground.tscn" type="PackedScene" id=5]
 [ext_resource path="res://demo/objects/char_viewport.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/ez_shader/utils_shader/base/EzShaderPlayer.gd" type="Script" id=7]
+[ext_resource path="res://addons/ez_shader/shader/pingpong_move.shader" type="Shader" id=8]
+[ext_resource path="res://addons/ez_shader/shader/pingpong_rotate.shader" type="Shader" id=9]
+[ext_resource path="res://addons/ez_shader/shader/pingpong_zoom.shader" type="Shader" id=10]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 8 )
+shader_param/offset = 0.0
+shader_param/speed = 1.0
+shader_param/range_x = 0.1
+shader_param/range_y = 0.0
+shader_param/zoom_x = 1.0
+shader_param/zoom_y = 1.0
+shader_param/smooth_value = 1.0
+shader_param/fade = 1.0
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 9 )
+shader_param/offset = 0.0
+shader_param/speed = 1.0
+shader_param/angle_start = 0.0
+shader_param/angle_arc = 60.0
+shader_param/center_x = 0.5
+shader_param/center_y = 0.5
+shader_param/smooth_value = 1.0
+shader_param/fade = 1.0
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 10 )
+shader_param/offset = 0.0
+shader_param/speed = 1.0
+shader_param/zoom = 1.0
+shader_param/center_x = 0.5
+shader_param/center_y = 0.5
+shader_param/intensity = 0.2
+shader_param/smooth_value = 1.0
+shader_param/fade = 1.0
 
 [node name="demo" type="Node2D"]
 script = ExtResource( 4 )
@@ -23,12 +59,16 @@ title = "PingPong Move"
 [node name="Label" parent="Char2" index="0"]
 text = "PingPong Move"
 
+[node name="ViewportContainer" parent="Char2" index="1"]
+material = SubResource( 1 )
+
 [node name="EzShaderPlayer" type="Node" parent="Char2"]
 script = ExtResource( 7 )
 node_path = NodePath("../ViewportContainer")
 
 [node name="EzPingPongMove" type="Node" parent="Char2/EzShaderPlayer"]
 script = ExtResource( 1 )
+is_active = true
 
 [node name="Char3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 571, 416 )
@@ -37,12 +77,16 @@ title = "PingPong Rotate"
 [node name="Label" parent="Char3" index="0"]
 text = "PingPong Rotate"
 
+[node name="ViewportContainer" parent="Char3" index="1"]
+material = SubResource( 2 )
+
 [node name="EzShaderPlayer" type="Node" parent="Char3"]
 script = ExtResource( 7 )
 node_path = NodePath("../ViewportContainer")
 
 [node name="EzPingPongRotate" type="Node" parent="Char3/EzShaderPlayer"]
 script = ExtResource( 3 )
+is_active = true
 
 [node name="Char4" parent="." instance=ExtResource( 6 )]
 position = Vector2( 826, 418 )
@@ -51,12 +95,16 @@ title = "PingPong Zoom"
 [node name="Label" parent="Char4" index="0"]
 text = "Pingpong Scale"
 
+[node name="ViewportContainer" parent="Char4" index="1"]
+material = SubResource( 3 )
+
 [node name="EzShaderPlayer" type="Node" parent="Char4"]
 script = ExtResource( 7 )
 node_path = NodePath("../ViewportContainer")
 
 [node name="EzPingPongZoom" type="Node" parent="Char4/EzShaderPlayer"]
 script = ExtResource( 2 )
+is_active = true
 
 [editable path="Char2"]
 [editable path="Char3"]

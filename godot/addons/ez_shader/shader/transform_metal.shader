@@ -1,6 +1,7 @@
 shader_type canvas_item;
 
-uniform float process_value : hint_range(0.0, 1.0) = 0.0;
+uniform float offset: hint_range(0, 100) = 0;
+uniform float speed : hint_range(-10, 10) = 1;
 uniform float fade : hint_range(0.0, 1.0) = 1.0;
 
 
@@ -39,7 +40,7 @@ vec4 transform_metal(vec2 uv, sampler2D txt, float value)
 
 void fragment()
 {
-	float value = process_value * 6.28318;
+	float value = offset + TIME * speed;
 	vec4 transform_metal = transform_metal(UV, TEXTURE, value);
 	vec4 output_color = transform_metal;
 

@@ -1,11 +1,11 @@
 shader_type canvas_item;
 
+uniform float offset: hint_range(0, 100) = 0;
+uniform float speed : hint_range(-10, 10) = 1;
 uniform vec4 tint_color : hint_color = vec4(0.0, 0.65, 1, 1);
 uniform float blend_value : hint_range(0.0, 1.0) = 1.0;
-uniform float speed: hint_range(0.0, 10.0) = 1.0;
 uniform float size : hint_range(0.0, 10.0) = 0.75;
 uniform float amount : hint_range(0.0, 24.0) = 10.0;
-uniform float process_value : hint_range(0.0, 1.0) = 0.0;
 uniform float fade : hint_range(0.0, 1.0) = 1.0;
 
 
@@ -43,7 +43,8 @@ vec4 blend_color(vec4 txt, vec4 color, float value)
 
 void fragment() 
 {
-	vec4 glitch = glitch(UV, TEXTURE, size, amount, speed, process_value);
+	float value = offset + TIME * speed;
+	vec4 glitch = glitch(UV, TEXTURE, size, amount, speed, value);
 	vec4 tint = blend_color(glitch, tint_color, blend_value);
 	vec4 final_result = tint;
 	

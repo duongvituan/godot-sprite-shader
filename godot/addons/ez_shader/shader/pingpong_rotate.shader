@@ -1,6 +1,7 @@
 shader_type canvas_item;
 
-uniform float process_value : hint_range(0.0, 1.0) = 0.0;
+uniform float offset: hint_range(0, 100) = 0;
+uniform float speed : hint_range(-10, 10) = 1;
 uniform float angle_start : hint_range(-360.0 , 360.0) = 0.0;
 uniform float angle_arc : hint_range(0.0 , 720.0) = 60.0;
 
@@ -26,7 +27,7 @@ vec2 rotation_uv(vec2 uv, float angleStart, float centerX, float centerY, float 
 
 void fragment()
 {
-	float value = process_value * 6.28318;
+	float value = offset + TIME * speed * 7.5;
 	vec2 uv = rotation_uv(UV, angle_start, center_x, center_y, angle_arc, value);
 	uv = mix(UV, uv, vec2(smooth_value));
 	vec4 output_color = texture(TEXTURE, uv);
