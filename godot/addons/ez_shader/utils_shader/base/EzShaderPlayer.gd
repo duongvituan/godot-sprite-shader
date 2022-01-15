@@ -1,6 +1,11 @@
 tool
 class_name EzShaderPlayer extends Node
 
+signal start_shader(ezShader)
+signal cancel_shader(ezShader)
+signal change_to_other_shader(new_shader, old_shader)
+signal finished_shader(ezShader)
+
 
 export(NodePath) var node_path = null setget _set_node_path
 
@@ -124,7 +129,6 @@ func _finished():
 	if node_use_shader.material != animating_shader.shader_meterial:
 		return
 	
-	animating_shader.emit_signal("finished")
 	animating_shader = null
 	
 	if inactive_when_finished:
@@ -208,6 +212,7 @@ func _update_shader_active(ez_shader, is_active):
 		activating_shader = ez_shader
 		node_use_shader.material = activating_shader.shader_meterial
 		activating_shader._set_active(true, false)
+		emit_signal("start_shader", ez_shader)
 		return
 	
 	# Off
@@ -215,16 +220,22 @@ func _update_shader_active(ez_shader, is_active):
 		activating_shader._set_active(false, false)
 		activating_shader = null
 		node_use_shader.material = null
+		emit_signal("finished_shader", ez_shader)
 		return
 	
 	# Switch active to other shader
 	if is_active:
 		activating_shader._set_active(false, false)
-		if activating_shader != ez_shader:
-			activating_shader.emit_signal("canceled")
+		var old_shader = activating_shader
 		activating_shader = ez_shader
 		node_use_shader.material = activating_shader.shader_meterial
 		activating_shader._set_active(true, false)
+		
+		if old_shader != ez_shader:
+			emit_signal("cancel_shader", old_shader)
+			emit_signal("change_to_other_shader", ez_shader, old_shader)
+			emit_signal("start_shader", ez_shader)
+		
 
 ### ============================================================================
 

@@ -24,8 +24,8 @@ void fragment()
 	float value = offset + TIME * speed;
 	vec4 main_tex = texture(TEXTURE, UV);
 	vec4 color = burn_color(main_tex, offset_burn, burn_value, value);
-	vec4 final_result = color;
+	vec4 output_color = color;
 
-	final_result.a *= fade;
-	COLOR = final_result;
+	output_color.a *= fade;
+	COLOR = output_color;
 }

@@ -1,8 +1,5 @@
 class_name EzShader extends Node
 
-signal finished()
-signal canceled()
-
 const SHADER_FOLDER_BASE = "res://addons/ez_shader/shader/"
 
 export(bool) var is_active = false setget _set_active
