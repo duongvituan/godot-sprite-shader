@@ -55,6 +55,11 @@ _global_script_classes=[ {
 "path": "res://addons/ez_shader/utils_shader/EzGlitch.gd"
 }, {
 "base": "EzShader",
+"class": "EzHoloWave",
+"language": "GDScript",
+"path": "res://addons/ez_shader/utils_shader/EzHoloWave.gd"
+}, {
+"base": "EzShader",
 "class": "EzHolographic",
 "language": "GDScript",
 "path": "res://addons/ez_shader/utils_shader/EzHolographic.gd"
@@ -164,6 +169,7 @@ _global_script_class_icons={
 "EzDissolveTwist": "",
 "EzDoodle": "",
 "EzGlitch": "",
+"EzHoloWave": "",
 "EzHolographic": "",
 "EzMatrixGradient": "",
 "EzMatrixOneColor": "",

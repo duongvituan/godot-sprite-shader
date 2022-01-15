@@ -31,6 +31,9 @@ scale = Vector2( -1, 1 )
 [node name="Label" parent="Dino/Char" index="0"]
 visible = false
 
+[node name="EzTransfromBurn" parent="Dino/EzShaderPlayer" index="2"]
+offset = 1.0
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 250.0
 margin_top = 175.0
