@@ -15,8 +15,7 @@ func _input(event):
 		on_next()
 	elif event.is_action_pressed("previous_demo"):
 		on_previous()
-	elif event.is_action_pressed("reset_demo"):
-		pass
+#	elif event.is_action_pressed("reset_demo"):
 #		on_reset()
 
 func _set_demo_screen(demo_screen: DemoScreen):

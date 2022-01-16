@@ -1,6 +1,7 @@
 class_name DemoLoader extends Node
 
-const PATH_DEMO_COLLECTION = "res://demo/list_demo/"
+const PATH_DEMO_SHADER = "res://demo/list_demo_shader/"
+const PATH_DEMO_GAME = "res://demo/list_demo_game/"
 
 # If you assign a value, the preview_demo will load only this demo
 var testing_demo_name = "" 
@@ -60,14 +61,20 @@ func _get_list_folder_demo(path) -> Array:
 
 
 func _load_all_collection_demo():
+	_load_demo_with_path(PATH_DEMO_SHADER)
+	_load_demo_with_path(PATH_DEMO_GAME)
+
+
+func _load_demo_with_path(path: String):
 	var list_demo_folder = []
 	if testing_demo_name.empty():
-		list_demo_folder = _get_list_folder_demo(PATH_DEMO_COLLECTION)
+		list_demo_folder = _get_list_folder_demo(path)
 	else:
 		list_demo_folder = [testing_demo_name]
 	
 	list_demo_folder.sort()
 	for folder in list_demo_folder:
-		var demo_path = "%s%s/demo.tscn" % [PATH_DEMO_COLLECTION, folder]
+		var demo_path = "%s%s/demo.tscn" % [path, folder]
 		print("loading demo: %s" % demo_path)
 		list_demo.append(load(demo_path))
+

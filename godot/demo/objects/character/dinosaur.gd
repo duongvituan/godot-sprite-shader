@@ -3,10 +3,10 @@ class_name Dino
 
 enum STATUS {Normal, Freeze, Fire}
 
-onready var shader_player := $EzShaderPlayer
-onready var one_color := $EzShaderPlayer/EzOneColor
-onready var transform_freeze := $EzShaderPlayer/EzTransfromFreeze
-onready var transform_burn := $EzShaderPlayer/EzTransfromBurn
+onready var shader_player := $SShaderContainer
+onready var one_color := $SShaderContainer/SSOneColor
+onready var transform_freeze := $SShaderContainer/SSTransfromFreeze
+onready var transform_burn := $SShaderContainer/SSTransfromBurn
 onready var animation_player = $Char/ViewportContainer/Viewport/Char/AnimationPlayer
 
 var status = STATUS.Normal

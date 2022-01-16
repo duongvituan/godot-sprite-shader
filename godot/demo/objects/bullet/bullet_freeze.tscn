@@ -2,7 +2,7 @@
 
 [ext_resource path="res://demo/objects/bullet/bullet_freeze.gd" type="Script" id=1]
 [ext_resource path="res://demo/assets/objects/Bullet.png" type="Texture" id=2]
-[ext_resource path="res://addons/ez_shader/shader/transform_freeze.shader" type="Shader" id=3]
+[ext_resource path="res://addons/godot_sprite_shader/assets/shader/transform_freeze.shader" type="Shader" id=3]
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )

@@ -5,10 +5,10 @@
 [ext_resource path="res://demo/objects/char_viewport.gd" type="Script" id=3]
 [ext_resource path="res://demo/assets/font/LilitaOne-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://demo/objects/character/dinosaur.gd" type="Script" id=5]
-[ext_resource path="res://addons/ez_shader/utils_shader/base/EzShaderPlayer.gd" type="Script" id=6]
-[ext_resource path="res://addons/ez_shader/utils_shader/EzOneColor.gd" type="Script" id=7]
-[ext_resource path="res://addons/ez_shader/utils_shader/EzTransformFreeze.gd" type="Script" id=8]
-[ext_resource path="res://addons/ez_shader/utils_shader/EzTransformBurn.gd" type="Script" id=9]
+[ext_resource path="res://addons/godot_sprite_shader/utils_shader/base/SShaderContainer.gd" type="Script" id=6]
+[ext_resource path="res://addons/godot_sprite_shader/utils_shader/SSOneColor.gd" type="Script" id=7]
+[ext_resource path="res://addons/godot_sprite_shader/utils_shader/SSTransformFreeze.gd" type="Script" id=8]
+[ext_resource path="res://addons/godot_sprite_shader/utils_shader/SSTransformBurn.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=4]
 size = 20
@@ -161,17 +161,17 @@ anims/Idle = SubResource( 2 )
 anims/RESET = SubResource( 3 )
 anims/Run = SubResource( 8 )
 
-[node name="EzShaderPlayer" type="Node" parent="."]
+[node name="SShaderContainer" type="Node" parent="."]
 script = ExtResource( 6 )
 node_path = NodePath("../Char/ViewportContainer")
 
-[node name="EzOneColor" type="Node" parent="EzShaderPlayer"]
+[node name="SSOneColor" type="Node" parent="SShaderContainer"]
 script = ExtResource( 7 )
 
-[node name="EzTransfromFreeze" type="Node" parent="EzShaderPlayer"]
+[node name="SSTransfromFreeze" type="Node" parent="SShaderContainer"]
 script = ExtResource( 8 )
 
-[node name="EzTransfromBurn" type="Node" parent="EzShaderPlayer"]
+[node name="SSTransfromBurn" type="Node" parent="SShaderContainer"]
 script = ExtResource( 9 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
