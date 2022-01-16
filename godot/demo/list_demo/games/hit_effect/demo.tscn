@@ -2,7 +2,7 @@
 
 [ext_resource path="res://demo/assets/font/LilitaOne-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://demo/objects/character/megaman.tscn" type="PackedScene" id=2]
-[ext_resource path="res://demo/list_demo_game/hit_effect/demo.gd" type="Script" id=3]
+[ext_resource path="res://demo/list_demo/games/hit_effect/demo.gd" type="Script" id=3]
 [ext_resource path="res://demo/assets/objects/BG2.png" type="Texture" id=4]
 [ext_resource path="res://demo/objects/back_ground.tscn" type="PackedScene" id=5]
 [ext_resource path="res://demo/objects/character/dinosaur.tscn" type="PackedScene" id=6]

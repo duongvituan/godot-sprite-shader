@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://demo/list_demo_shader/transfrom/demo.gd" type="Script" id=1]
+[ext_resource path="res://demo/list_demo/shaders/transfrom/demo.gd" type="Script" id=1]
 [ext_resource path="res://demo/objects/char_viewport.tscn" type="PackedScene" id=2]
 [ext_resource path="res://addons/godot_sprite_shader/utils_shader/SSTransfromGold.gd" type="Script" id=3]
 [ext_resource path="res://addons/godot_sprite_shader/utils_shader/SSTransformMetal.gd" type="Script" id=4]

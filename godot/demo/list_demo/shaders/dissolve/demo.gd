@@ -28,7 +28,7 @@ func start_to_dust():
 		
 		
 		# Dissolve with circle
-		$Char4/SShaderContainer/SSDissolveCircle.play(1.0, false)
+		$Char4/SShaderContainer/SSDissolveFlash.play(1.0, false)
 		$Char4.stop_sprite_animation()
 		
 		# Dissolve twist
@@ -43,7 +43,7 @@ func start_to_dust():
 		$Char3/SShaderContainer/SSDissolveBurn.play_reverse(1.0, false)
 		$Char3.play_sprite_animation()
 		
-		$Char4/SShaderContainer/SSDissolveCircle.play_reverse(1.0, false)
+		$Char4/SShaderContainer/SSDissolveFlash.play_reverse(1.0, false)
 		$Char4.play_sprite_animation()
 		
 		$Char5/SShaderContainer/SSDissolveTwist.play_reverse(1.0, false)

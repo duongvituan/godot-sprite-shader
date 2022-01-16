@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://demo/list_demo_shader/shiny/demo.gd" type="Script" id=1]
+[ext_resource path="res://demo/list_demo/shaders/shiny/demo.gd" type="Script" id=1]
 [ext_resource path="res://demo/objects/back_ground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://demo/objects/char_viewport.tscn" type="PackedScene" id=3]
 [ext_resource path="res://addons/godot_sprite_shader/utils_shader/SSShiny.gd" type="Script" id=4]

@@ -30,14 +30,14 @@ _global_script_classes=[ {
 "path": "res://addons/godot_sprite_shader/utils_shader/SSDissolveBurn.gd"
 }, {
 "base": "SShaderInterval",
-"class": "SSDissolveCircle",
-"language": "GDScript",
-"path": "res://addons/godot_sprite_shader/utils_shader/SSDissolveCircle.gd"
-}, {
-"base": "SShaderInterval",
 "class": "SSDissolveDust",
 "language": "GDScript",
 "path": "res://addons/godot_sprite_shader/utils_shader/SSDissolveDust.gd"
+}, {
+"base": "SShaderInterval",
+"class": "SSDissolveFlash",
+"language": "GDScript",
+"path": "res://addons/godot_sprite_shader/utils_shader/SSDissolveFlash.gd"
 }, {
 "base": "SShaderInterval",
 "class": "SSDissolveTwist",
@@ -164,8 +164,8 @@ _global_script_class_icons={
 "DemoScreen": "",
 "Dino": "",
 "SSDissolveBurn": "",
-"SSDissolveCircle": "",
 "SSDissolveDust": "",
+"SSDissolveFlash": "",
 "SSDissolveTwist": "",
 "SSDoodle": "",
 "SSGlitch": "",
@@ -201,6 +201,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Utils="*res://demo/utils/Utils.gd"
+ss="*res://addons/godot_sprite_shader/ss.gd"
 
 [display]
 

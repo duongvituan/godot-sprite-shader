@@ -1,7 +1,7 @@
 class_name DemoLoader extends Node
 
-const PATH_DEMO_SHADER = "res://demo/list_demo_shader/"
-const PATH_DEMO_GAME = "res://demo/list_demo_game/"
+const PATH_DEMO_SHADER = "res://demo/list_demo/shaders/"
+const PATH_DEMO_GAME = "res://demo/list_demo/games/"
 
 # If you assign a value, the preview_demo will load only this demo
 var testing_demo_name = "" 
