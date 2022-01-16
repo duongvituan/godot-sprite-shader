@@ -82,8 +82,6 @@ func _process(delta):
 func set_node_use_shader(node):
 	node_path = node.get_path()
 	node_use_shader = node
-	print("Tuan path")
-	print(node_path)
 	
 ### ============================================================================
 
