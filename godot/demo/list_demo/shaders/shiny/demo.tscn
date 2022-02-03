@@ -3,8 +3,8 @@
 [ext_resource path="res://demo/list_demo/shaders/shiny/demo.gd" type="Script" id=1]
 [ext_resource path="res://demo/objects/back_ground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://demo/objects/char_viewport.tscn" type="PackedScene" id=3]
-[ext_resource path="res://addons/godot_sprite_shader/utils_shader/SSShiny.gd" type="Script" id=4]
-[ext_resource path="res://addons/godot_sprite_shader/utils_shader/base/SShaderContainer.gd" type="Script" id=5]
+[ext_resource path="res://addons/godot_sprite_shader/src/sshader/SSShiny.gd" type="Script" id=4]
+[ext_resource path="res://addons/godot_sprite_shader/src/core/SShaderContainer.gd" type="Script" id=5]
 
 [node name="demo" type="Node2D"]
 script = ExtResource( 1 )

@@ -5,10 +5,10 @@
 [ext_resource path="res://demo/objects/char_viewport.gd" type="Script" id=3]
 [ext_resource path="res://demo/assets/font/LilitaOne-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://demo/objects/character/dinosaur.gd" type="Script" id=5]
-[ext_resource path="res://addons/godot_sprite_shader/utils_shader/base/SShaderContainer.gd" type="Script" id=6]
-[ext_resource path="res://addons/godot_sprite_shader/utils_shader/SSOneColor.gd" type="Script" id=7]
-[ext_resource path="res://addons/godot_sprite_shader/utils_shader/SSTransformFreeze.gd" type="Script" id=8]
-[ext_resource path="res://addons/godot_sprite_shader/utils_shader/SSTransformBurn.gd" type="Script" id=9]
+[ext_resource path="res://addons/godot_sprite_shader/src/core/SShaderContainer.gd" type="Script" id=6]
+[ext_resource path="res://addons/godot_sprite_shader/src/sshader/SSOneColor.gd" type="Script" id=7]
+[ext_resource path="res://addons/godot_sprite_shader/src/sshader/SSTransformFreeze.gd" type="Script" id=8]
+[ext_resource path="res://addons/godot_sprite_shader/src/sshader/SSTransformBurn.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=4]
 size = 20

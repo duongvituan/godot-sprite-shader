@@ -2,15 +2,15 @@
 
 [ext_resource path="res://demo/objects/back_ground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://demo/objects/char_sprite_sheets.tscn" type="PackedScene" id=2]
-[ext_resource path="res://addons/godot_sprite_shader/utils_shader/SSHolographic.gd" type="Script" id=3]
-[ext_resource path="res://addons/godot_sprite_shader/utils_shader/base/SShaderContainer.gd" type="Script" id=4]
+[ext_resource path="res://addons/godot_sprite_shader/src/sshader/SSHolographic.gd" type="Script" id=3]
+[ext_resource path="res://addons/godot_sprite_shader/src/core/SShaderContainer.gd" type="Script" id=4]
 [ext_resource path="res://demo/list_demo/shaders/holographic/demo.gd" type="Script" id=5]
-[ext_resource path="res://addons/godot_sprite_shader/utils_shader/SSGlitch.gd" type="Script" id=6]
+[ext_resource path="res://addons/godot_sprite_shader/src/sshader/SSGlitch.gd" type="Script" id=6]
 [ext_resource path="res://demo/objects/char_viewport.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/godot_sprite_shader/assets/shader/glitch.shader" type="Shader" id=8]
 [ext_resource path="res://addons/godot_sprite_shader/assets/shader/holographic.shader" type="Shader" id=9]
 [ext_resource path="res://addons/godot_sprite_shader/assets/shader/holo_wave.shader" type="Shader" id=10]
-[ext_resource path="res://addons/godot_sprite_shader/utils_shader/SSHoloWave.gd" type="Script" id=11]
+[ext_resource path="res://addons/godot_sprite_shader/src/sshader/SSHoloWave.gd" type="Script" id=11]
 
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 9 )
