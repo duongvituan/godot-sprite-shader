@@ -1,5 +1,5 @@
 tool
-class_name SSGlitch extends SShaderInterval
+class_name SSGlitch extends SShader
 
 export(float, 0, 100, 0.1) var offset: float = 0.0 setget _set_offset
 export(float, -10, 10, 0.01) var speed: float = 1.0 setget _set_speed
