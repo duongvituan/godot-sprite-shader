@@ -37,6 +37,7 @@ node_path = NodePath("../ViewportContainer")
 
 [node name="SSDissolveDust" type="Node" parent="Char2/SShaderContainer"]
 script = ExtResource( 1 )
+offset_y = -0.133
 dust_size = 128.0
 
 [node name="Char3" parent="." instance=ExtResource( 3 )]
