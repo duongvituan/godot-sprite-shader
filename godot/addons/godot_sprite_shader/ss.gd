@@ -75,4 +75,3 @@ func transform_gold() -> SSTransfromGold:
 func twist() -> SSTwist:
 	return SSTwist.new()
 
-

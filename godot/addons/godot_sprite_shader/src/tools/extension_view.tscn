@@ -1,0 +1,84 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/godot_sprite_shader/src/tools/extension_view.gd" type="Script" id=1]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+margin_right = 199.0
+margin_bottom = 120.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 199.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+color = Color( 0.286275, 0.309804, 0.368627, 1 )
+
+[node name="Label" type="Label" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+text = "SShader Extension:
+ Use Viewport to your Sprite"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 54.0
+margin_right = 199.0
+margin_bottom = 78.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_top = 5.0
+margin_right = 75.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 75, 0 )
+text = "Width:"
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+margin_left = 79.0
+margin_right = 195.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+placeholder_text = "0"
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+margin_left = 199.0
+margin_right = 199.0
+margin_bottom = 24.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+margin_top = 82.0
+margin_right = 199.0
+margin_bottom = 106.0
+
+[node name="Label" type="Label" parent="HBoxContainer2"]
+margin_top = 5.0
+margin_right = 75.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 75, 0 )
+text = "Height:"
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer2"]
+margin_left = 79.0
+margin_right = 195.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+placeholder_text = "0"
+
+[node name="Control" type="Control" parent="HBoxContainer2"]
+margin_left = 199.0
+margin_right = 199.0
+margin_bottom = 24.0
+
+[node name="Button" type="Button" parent="."]
+margin_top = 110.0
+margin_right = 199.0
+margin_bottom = 130.0
+size_flags_horizontal = 3
+text = "Create"
