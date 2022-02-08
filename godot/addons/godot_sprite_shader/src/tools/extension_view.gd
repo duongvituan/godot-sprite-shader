@@ -18,11 +18,11 @@ func _ready():
 
 func configUI():
 	if type == Type.Create:
-		title_label.text = "GSShader Extension:\n Use Viewport to your Sprite"
+		title_label.text = "GSShader Extension:\n Use Viewport to your Node"
 		ok_button.text = "OK"
 		
 	elif type == Type.Update:
-		title_label.text = "GSShader Extension:\n Update size viewport"
+		title_label.text = "GSShader Extension:\n Update size Viewport"
 		ok_button.text = "Update"
 		
 		var selection = _get_selected()
@@ -51,7 +51,7 @@ func _on_button_down():
 		return
 	
 	if size.y <= 0.0:
-		push_error("Current height is: %s, height must be greater than zero" % size.x)
+		push_error("Current height is: %s, height must be greater than zero" % size.y)
 		return
 	
 	if type == Type.Create:
