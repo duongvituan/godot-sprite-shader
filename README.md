@@ -30,14 +30,14 @@ If you need more details, you can watch the video above.
  - With SShader you can activate or inactive them to apply or remove shader into the sprite.
  - With SShaderInterval (orange) types it needs to update the process_value variable to do the animation, you can do this with the AnimationPlayer or using the functions:
  
-```
-func play(duration: float, inactive_when_finished: bool = false):
-func play_repeat(duration: float, repeat: int, inactive_when_finished: bool = false, delay_each_repeat: float = 0.0):
-func play_repeat_forever(duration: float, delay_each_repeat: float = 0.0):
+```python
+func play(duration: float, inactive_when_finished: bool = false)
+func play_repeat(duration: float, repeat: int, inactive_when_finished: bool = false, delay_each_repeat: float = 0.0)
+func play_repeat_forever(duration: float, delay_each_repeat: float = 0.0)
 
-func play_reverse(duration: float, inactive_when_finished: bool = false):
-func play_reverse_repeat(duration: float, repeat: int, inactive_when_finished: bool = false, delay_each_repeat: float = 0.0):
-func play_reverse_repeat_forever(duration: float, delay_each_repeat: float = 0.0):
+func play_reverse(duration: float, inactive_when_finished: bool = false)
+func play_reverse_repeat(duration: float, repeat: int, inactive_when_finished: bool = false, delay_each_repeat: float = 0.0)
+func play_reverse_repeat_forever(duration: float, delay_each_repeat: float = 0.0)
 ```
 
 ex: ```$Char2/SShaderContainer/SSDissolveDust.play(1.0, false)```
@@ -69,6 +69,7 @@ The way to fix this is to use Viewport:
  #### Create :
 - Select the Sprite or Node you want to import in the Viewport.
 - In the GSS Extensions section. You can enter the size and press OK Button.
+- Select SShaderContainer and update "node path" to ViewportContainer (Don't forget this step).
 
 ![Create](https://github.com/duongvituan/godot-sprite-shader/blob/master/preview_image/use_viewport.gif)
 
