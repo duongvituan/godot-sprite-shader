@@ -19,13 +19,14 @@ Watch tutorial video: update late
 ### Installation
 Copy the contents of folder addons in plugins to your project and activate GodotSpriteShader.
 
+> Note:  if you get error `core/script_language.cpp:232` [link](https://github.com/duongvituan/godot-sprite-shader#i-got-the-sprite_languagecpp-error-message-when-i-installed-the-plugin)
+
 If you need more details, you can watch the video above.
 
 
-
 ### How to use GodotSpriteShader
-1. First, you need to add Node SShaderContainer and set the "node path" to the node where you want to use the shader (it can be Sprite, RectTexturem ViewportContainer...)
-2. Add the SShader types you want to use. The SShader is child of SShaderContainer.
+1. First, you need to add Node **SShaderContainer** and set the **node path** to the node where you want to use the shader (it can be Sprite, RectTexturem, ViewportContainer...)
+2. Add the **SShader** types you want to use. The SShader is child of SShaderContainer.
 3. Use:
  - With SShader you can activate or inactive them to apply or remove shader into the sprite.
  - With SShaderInterval (orange) types it needs to update the process_value variable to do the animation, you can do this with the AnimationPlayer or using the functions:
@@ -42,10 +43,9 @@ func play_reverse_repeat_forever(duration: float, delay_each_repeat: float = 0.0
 
 ex: ```$Char2/SShaderContainer/SSDissolveDust.play(1.0, false)```
 
-Note: 
-If you call function play for the SShader (White), it's simply an active shader at the start and inactive shader at the end.
+> Note: If you call function play for the SShader (White), it's simply an active shader at the start and inactive shader at the end.
 
-ex: You want to create a flash effect - "hit effect" when the character is hit.
+ex: You want to create a **hit effect** when the character is hit.
 
 Pseudocode:
 - Active Shader change Sprite to white color.
@@ -69,7 +69,7 @@ The way to fix this is to use Viewport:
  #### Create :
 - Select the Sprite or Node you want to import in the Viewport.
 - In the GSS Extensions section. You can enter the size and press OK Button.
-- Select SShaderContainer and update "node path" to ViewportContainer (Don't forget this step).
+- Select **SShaderContainer** and update **node path** to **ViewportContainer** (Don't forget this step).
 
 ![Create](https://github.com/duongvituan/godot-sprite-shader/blob/master/preview_image/use_viewport.gif)
 
@@ -78,8 +78,7 @@ The way to fix this is to use Viewport:
 
 ![Update](https://github.com/duongvituan/godot-sprite-shader/blob/master/preview_image/update_viewport.gif)
 
-Note: this tool "add node to Viewport" is still in testing so it may not work as expected.
-If you have a problem with this tool then you can create a pull to help me fix it or create an issue and I will fix it late.
+> Note:  this tool "add node to Viewport" is still in testing so it may not work as expected. If you have a problem with this tool then you can create a pull to help me fix it or create an issue and I will fix it late.
 
 
 ### Using multiple shaders:
