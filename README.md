@@ -8,7 +8,7 @@ res://addons/godot_sprite_shader/assets/shader/
 If you are not experience about shader or just want to use them in a few simple cases, this plugin comes with SShader (Sprite Shader) that help you use shader and run their animation quickly. You don't need config the noise texture for the shader, everything is already config, you just drag and drop the type shader you want to use and change param it.
 
 
-![Preview](https://github.com/duongvituan/godot-sprite-shader/blob/master/preview_image/preview_demo.gif)
+![Preview](https://github.com/duongvituan/godot-sprite-shader/blob/master/preview_image/preview_demo1.gif)
 ![Use](https://github.com/duongvituan/godot-sprite-shader/blob/master/preview_image/demo_use.gif)
 
 ## Install and use
@@ -83,7 +83,7 @@ If you have a problem with this tool then you can create a pull to help me fix i
 
 ### Using multiple shaders:
 - You can create more viewports to use (each viewport use 1 shader)
-![MultipleShader](https://github.com/duongvituan/godot-sprite-shader/blob/master/multi_shader/update_viewport.gif)
+![MultipleShader](https://github.com/duongvituan/godot-sprite-shader/blob/master/preview_image/multi_shader.gif)
 
 
 ## QA:
