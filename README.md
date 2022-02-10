@@ -13,7 +13,7 @@ If you are not experience about shader or just want to use them in a few simple 
 
 ## Install and use
 
-Watch tutorial vide: update late
+Watch tutorial video: update late
 
 
 ### Installation
@@ -77,16 +77,25 @@ The way to fix this is to use Viewport:
 
 ![Update](https://github.com/duongvituan/godot-sprite-shader/blob/master/preview_image/update_viewport.gif)
 
+Note: this tool "add node to Viewport" is still in testing so it may not work as expected.
+If you have a problem with this tool then you can create a pull to help me fix it or create an issue and I will fix it late.
+
+
+### Using multiple shaders:
+- You can create more viewports to use (each viewport use 1 shader)
+![MultipleShader](https://github.com/duongvituan/godot-sprite-shader/blob/master/multi_shader/update_viewport.gif)
+
 
 ## QA:
 ### I got the sprite_language.cpp error message when I installed the plugin:
 ```core/script_language.cpp:232 - Condition "!global_classes.has(p_class)" is true. Returned: String()```
+You may get this error when first time install plugin.
 I don't know why, but you can close and reopen the project to fix error :(.
 
 
 ### Shaders behave unexpectedly:
 - If you are using Sprite with Sheets image then you need to use viewport.
-- If you use Viewport make sure SShaderContainer has node path to ViewportContainer not for Sprite. Check that the shader file is still in the sprite, delete it if you used it in the viewport.
+- If you use Viewport make sure SShaderContainer has node path to ViewportContainer not for Sprite. Check that the old shader file is still in the sprite, delete it if you used it in the viewport.
 
 
 ## Contribution
