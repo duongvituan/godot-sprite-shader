@@ -201,6 +201,11 @@ func _set_node_path(path: NodePath):
 	
 	var node = get_node(path)
 	
+	# Remove old shader in sprite when change Node Path
+	if activating_shader != null and node != node_use_shader:
+		activating_shader.is_active = false
+		activating_shader = null
+	
 	if node != null:
 		node_use_shader = node
 	else:
