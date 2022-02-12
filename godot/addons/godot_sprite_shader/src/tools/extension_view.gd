@@ -7,6 +7,8 @@ onready var title_label := $ColorRect/Label
 onready var ok_button := $Button
 onready var line_edit_width := $HBoxContainer/LineEdit
 onready var line_edit_height := $HBoxContainer2/LineEdit
+onready var remove_old_sd_check_box := $HBoxContainer3/CheckBox
+onready var remove_old_sd_row := $HBoxContainer3
 
 var type = Type.Create
 
@@ -24,6 +26,8 @@ func configUI():
 	elif type == Type.Update:
 		title_label.text = "GSShader Extension:\n Update size Viewport"
 		ok_button.text = "Update"
+		
+		remove_old_sd_row.queue_free()
 		
 		var selection = _get_selected()
 		if selection is ViewportContainer:
@@ -88,6 +92,8 @@ func add_node_to_viewport(size: Vector2):
 #	selection.get_parent().remove_child(selection) <-------- raise error: core/object.cpp:1958
 #	I will duplication node and add it again :((.
 	var new_node = selection.duplicate()
+	if remove_old_sd_check_box.pressed:
+		new_node.material = null
 	selection.queue_free()
 	
 	viewport.add_child(new_node)

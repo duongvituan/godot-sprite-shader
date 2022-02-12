@@ -20,8 +20,8 @@ color = Color( 0.286275, 0.309804, 0.368627, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
-text = "SShader Extension:
- Use Viewport to your Sprite"
+text = "GSShader Extension:
+ Use Viewport to your Node"
 align = 1
 valign = 1
 __meta__ = {
@@ -76,9 +76,20 @@ margin_left = 199.0
 margin_right = 199.0
 margin_bottom = 24.0
 
-[node name="Button" type="Button" parent="."]
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
 margin_top = 110.0
 margin_right = 199.0
-margin_bottom = 130.0
+margin_bottom = 134.0
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer3"]
+margin_right = 198.0
+margin_bottom = 24.0
+pressed = true
+text = "Remove old shader if exist"
+
+[node name="Button" type="Button" parent="."]
+margin_top = 138.0
+margin_right = 199.0
+margin_bottom = 158.0
 size_flags_horizontal = 3
-text = "Create"
+text = "OK"
