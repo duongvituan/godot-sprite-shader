@@ -55,4 +55,3 @@ func _set_number_row_char_texture(value):
 func _set_number_column_char_texture(value):
 	number_column_char_texture = value
 	_set_shader_f_value("number_column_char_texture", float(value))
-

@@ -27,5 +27,3 @@ func _set_hologram_noise_x(value):
 func _set_hologram_speed(value):
 	hologram_speed = value
 	_set_shader_f_value("hologram_speed", value)
-
-

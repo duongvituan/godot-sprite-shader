@@ -39,5 +39,3 @@ func _update(value: float, eased_value: float, delta: float):
 		else:
 			process_value = 2.0 - eased_value * 2.0
 	self.process_value = process_value
-
-

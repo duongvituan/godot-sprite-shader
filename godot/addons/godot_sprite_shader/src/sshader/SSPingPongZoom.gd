@@ -40,5 +40,3 @@ func _set_intensity(value):
 func _set_smooth_value(value):
 	smooth_value = value
 	_set_shader_f_value("smooth_value", value)
-
-

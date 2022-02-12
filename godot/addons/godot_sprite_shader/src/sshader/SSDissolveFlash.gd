@@ -13,11 +13,11 @@ func _load_shader():
 
 
 func _set_offset_x(value):
-	line_thickness = value
+	offset_x = value
 	_set_shader_f_value("offset_x", value)
 
 func _set_offset_y(value):
-	line_thickness = value
+	offset_y = value
 	_set_shader_f_value("offset_y", value)
 
 func _set_line_thickness(value):

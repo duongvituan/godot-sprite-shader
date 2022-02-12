@@ -43,4 +43,3 @@ func _set_wave_width(value):
 func _set_tint_color(value):
 	tint_color = value
 	_set_shader_color_value("tint_color", value)
-

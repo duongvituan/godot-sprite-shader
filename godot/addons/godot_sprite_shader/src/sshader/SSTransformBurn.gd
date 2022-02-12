@@ -25,5 +25,3 @@ func _set_offset_burn(value):
 func _set_burn_value(value):
 	burn_value = value
 	_set_shader_f_value("burn_value", value)
-
-

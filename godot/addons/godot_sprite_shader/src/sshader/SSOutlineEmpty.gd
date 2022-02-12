@@ -17,4 +17,3 @@ func _set_line_color(value):
 func _set_line_thickness(value):
 	line_thickness = value
 	_set_shader_f_value("line_thickness", value)
-

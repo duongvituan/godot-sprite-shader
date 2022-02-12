@@ -19,4 +19,3 @@ func _set_noise_tex(value):
 func _set_burn_color(value):
 	burn_color = value
 	_set_shader_color_value("burn_color", value)
-

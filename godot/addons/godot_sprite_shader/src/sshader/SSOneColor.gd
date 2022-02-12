@@ -11,4 +11,3 @@ func _load_shader():
 func _set_color(value):
 	color = value
 	_set_shader_color_value("color", value)
-
