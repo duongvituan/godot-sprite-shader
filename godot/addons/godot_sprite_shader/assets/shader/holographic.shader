@@ -1,5 +1,6 @@
 shader_type canvas_item;
 
+uniform sampler2D noise_tex;
 uniform float hologram_value : hint_range(0, 1) = 0.75;
 uniform float hologram_noise_x : hint_range(0, 20) = 10;
 uniform float hologram_speed : hint_range(0, 4) = 1.0;
@@ -16,12 +17,6 @@ float holo_noise(sampler2D source, vec2 p, float time)
 float holo_on(float x, float y, float z, float time)
 {
 	return step(z, sin(time + x * cos(time * y)));
-}
-
-
-float generate_noise(vec2 uv)
-{
-	return fract(sin(dot(uv.xy, vec2(12.9898, 78.233))) * 43758.5453);
 }
 
 
@@ -60,7 +55,9 @@ vec4 hologram(vec2 uv, sampler2D source, float value, float noise_x, float speed
 	float noise = holo_noise(source, uv * vec2(0.5, 1.) + vec2(6., 3.), time) * value * 3.;
 	holo_txt += wave_line_mark(_uv, _time) * noise * holo_txt.a;
 	holo_txt *= horizontal_row_mark(_uv, _time);
-	holo_txt.a = (holo_txt.a + generate_noise(_uv) * 0.5) * txt.a * 0.8;
+	
+	float noise2 = texture(noise_tex, _uv).r;
+	holo_txt.a = (holo_txt.a + noise2 * 0.5) * txt.a * 0.8;
 	
 	return mix(txt, holo_txt, value);
 }

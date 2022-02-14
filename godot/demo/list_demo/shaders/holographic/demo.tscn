@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://demo/objects/back_ground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://demo/objects/char_sprite_sheets.tscn" type="PackedScene" id=2]
@@ -11,16 +11,17 @@
 [ext_resource path="res://addons/godot_sprite_shader/assets/shader/holographic.shader" type="Shader" id=9]
 [ext_resource path="res://addons/godot_sprite_shader/assets/shader/holo_wave.shader" type="Shader" id=10]
 [ext_resource path="res://addons/godot_sprite_shader/src/sshader/SSHoloWave.gd" type="Script" id=11]
+[ext_resource path="res://addons/godot_sprite_shader/assets/noise/noise0.png" type="Texture" id=12]
 
-[sub_resource type="ShaderMaterial" id=9]
+[sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 9 )
 shader_param/hologram_value = 0.75
 shader_param/hologram_noise_x = 10.0
 shader_param/hologram_speed = 1.0
 shader_param/tint_color = Color( 0, 0.65, 1, 1 )
-shader_param/fade = 1.0
+shader_param/noise_tex = ExtResource( 12 )
 
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="ShaderMaterial" id=7]
 shader = ExtResource( 8 )
 shader_param/offset = 0.0
 shader_param/speed = 1.0
@@ -28,7 +29,6 @@ shader_param/tint_color = Color( 0, 0.65, 1, 1 )
 shader_param/blend_value = 1.0
 shader_param/size = 0.75
 shader_param/amount = 10.0
-shader_param/fade = 1.0
 
 [sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 10 )
@@ -39,7 +39,6 @@ shader_param/wave_speed = 3.0
 shader_param/wave_freq = 30.0
 shader_param/wave_width = 1.0
 shader_param/tint_color = Color( 0, 0.65, 1, 1 )
-shader_param/fade = 1.0
 
 [sub_resource type="Animation" id=4]
 resource_name = "New Anim"
@@ -81,7 +80,7 @@ script = ExtResource( 5 )
 position = Vector2( 152, 407 )
 
 [node name="Char2" parent="." instance=ExtResource( 2 )]
-material = SubResource( 9 )
+material = SubResource( 6 )
 position = Vector2( 374, 406 )
 title = "Holographic"
 
@@ -104,7 +103,7 @@ title = "Glitch"
 text = "Glitch"
 
 [node name="ViewportContainer" parent="Char3" index="1"]
-material = SubResource( 10 )
+material = SubResource( 7 )
 
 [node name="SShaderContainer" type="Node" parent="Char3"]
 script = ExtResource( 4 )

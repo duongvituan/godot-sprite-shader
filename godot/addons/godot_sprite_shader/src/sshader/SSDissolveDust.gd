@@ -1,14 +1,14 @@
 tool
 class_name SSDissolveDust extends SShaderInterval
 
-
+export var noise_tex = preload("res://addons/godot_sprite_shader/assets/noise/noise0.png") setget _set_noise_tex
 export(float, -1, 1, 0.001) var offset_x: float = 0 setget _set_offset_x
 
 # If you use this shader for Sprite ỏor RectTexure then offset_y value can be -0.85
 # If you use this shader for Viewport then offset_y value can be -0.15
 export(float, -1, 1, 0.001) var offset_y: float = -0.85 setget _set_offset_y
 
-export(float, 1, 256, 0.5) var dust_size: float = 64 setget _set_dust_size
+export(float, 1, 512, 0.5) var dust_size: float = 128 setget _set_dust_size
 
 export(float, 0, 10, 0.01) var dust_value_x: float = 1 setget _set_dust_value_x
 export(float, 0, 10, 0.01) var dust_value_y: float = 4 setget _set_dust_value_y
@@ -17,6 +17,12 @@ export(float, 0, 10, 0.01) var dust_value_y: float = 4 setget _set_dust_value_y
 func _load_shader():
 	return load(SHADER_FOLDER_BASE + "dissolve_dust.shader")
 
+func _ready():
+	self.noise_tex = noise_tex
+
+func _set_noise_tex(value):
+	noise_tex = value
+	_set_shader_texture_value("noise_tex", value)
 
 func _set_offset_x(value):
 	offset_x = value

@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://demo/utils/make_noise_screen_temporary/ContainerNoise.gd" type="Script" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+vec4 generate_noise(vec2 uv)
+{
+	return vec4(fract(sin(dot(uv.xy, vec2(12.9898, 78.233))) * 43758.5453));
+}
+
+void fragment()
+{
+	COLOR = generate_noise(UV);
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 
 [node name="ContainerNoise" type="Control"]
 anchor_right = 1.0
@@ -24,5 +41,6 @@ handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="ColorRect" type="ColorRect" parent="ViewportContainer/Viewport"]
+material = SubResource( 2 )
 margin_right = 512.0
 margin_bottom = 512.0

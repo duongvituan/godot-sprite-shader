@@ -1,6 +1,7 @@
 tool
 class_name SSHolographic extends SShader
 
+export var noise_tex = preload("res://addons/godot_sprite_shader/assets/noise/noise0.png") setget _set_noise_tex
 export var tint_color: Color = Color(0, 0.65, 1, 1) setget _set_tint_color
 export(float, 0, 1, 0.001) var hologram_value: float = 0.75 setget _set_hologram_value
 export(float, 0, 20, 0.1) var hologram_noise_x: float = 10 setget _set_hologram_noise_x
@@ -10,11 +11,16 @@ export(float, 0, 4, 0.01) var hologram_speed: float = 0.75 setget _set_hologram_
 func _load_shader():
 	return load(SHADER_FOLDER_BASE + "holographic.shader")
 
+func _ready():
+	self.noise_tex = noise_tex
+
+func _set_noise_tex(value):
+	noise_tex = value
+	_set_shader_texture_value("noise_tex", value)
 
 func _set_tint_color(value):
 	tint_color = value
 	_set_shader_color_value("tint_color", value)
-
 
 func _set_hologram_value(value):
 	hologram_value = value
