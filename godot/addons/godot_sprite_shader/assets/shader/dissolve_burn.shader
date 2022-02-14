@@ -3,7 +3,6 @@ shader_type canvas_item;
 uniform sampler2D noise_tex;
 uniform vec4 burn_color : hint_color = vec4(1.0, 0.3, 0.05, 1.0);
 uniform float process_value : hint_range(0, 1) = 0;
-uniform float fade : hint_range(0.0, 1.0) = 1.0;
 
 
 vec4 burn_vfx(vec4 tx, float noise, float value, vec4 _color)
@@ -23,7 +22,5 @@ void fragment()
 	vec4 main_texture = texture(TEXTURE, UV);
 	float noise = texture(noise_tex, UV).r;
 	vec4 output_color = burn_vfx(main_texture, noise, process_value, burn_color);
-
-	output_color.a *= fade;
 	COLOR = output_color;
 }

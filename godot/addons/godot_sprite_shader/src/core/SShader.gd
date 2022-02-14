@@ -4,7 +4,6 @@ class_name SShader, "res://addons/godot_sprite_shader/assets/icon/icon_ss.png"
 const SHADER_FOLDER_BASE = "res://addons/godot_sprite_shader/assets/shader/"
 
 export(bool) var is_active = false setget _set_active
-export(float, 0, 1, 0.001) var fade: float = 1.0 setget _set_fade
 
 var _shader_player: SShaderContainer setget , _get_shader_player
 
@@ -131,11 +130,6 @@ func _set_shader_color_value(name_value, color):
 
 func _set_shader_texture_value(name_value, texture):
 	shader_meterial.set_shader_param(name_value, texture)
-
-
-func _set_fade(value: float):
-	fade = value
-	_set_shader_f_value("fade", value)
 
 
 func _get_shader_player():

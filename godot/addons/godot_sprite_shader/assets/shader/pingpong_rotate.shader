@@ -7,7 +7,6 @@ uniform float angle_arc : hint_range(0.0 , 720.0) = 60.0;
 uniform float center_x : hint_range(-2.0 , 2.0) = 0.5;
 uniform float center_y : hint_range(-2.0 , 2.0) = 0.5;
 uniform float smooth_value : hint_range(0.0 , 1.0) = 1.0;
-uniform float fade : hint_range(0.0, 1.0) = 1.0;
 
 
 vec2 rotate(vec2 n, float angle)
@@ -30,7 +29,5 @@ void fragment()
 	vec2 uv = rotation_uv(UV, angle_start, center_x, center_y, angle_arc, value);
 	uv = mix(UV, uv, vec2(smooth_value));
 	vec4 output_color = texture(TEXTURE, uv);
-
-	output_color.a *= fade;
 	COLOR = output_color;
 }

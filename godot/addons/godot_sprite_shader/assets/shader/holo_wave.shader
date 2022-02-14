@@ -9,7 +9,6 @@ uniform float wave_freq: hint_range(0, 100) = 30.0;
 uniform float wave_width: hint_range(0, 10) = 1.0;
 
 uniform vec4 tint_color : hint_color = vec4(0, 0.65, 1, 1);
-uniform float fade : hint_range(0.0, 1.0) = 1.0;
 
 
 float mark(vec2 uv, float height, float time)
@@ -40,6 +39,5 @@ void fragment() {
 	float time = offset + TIME * speed;
 	vec4 holo = holo(UV, TEXTURE, wave_speed, wave_freq, wave_width, wave_height, time);
 	vec4 output_color = flash_color(holo, tint_color, UV, time);
-	output_color.a *= fade;
 	COLOR = output_color;
 }

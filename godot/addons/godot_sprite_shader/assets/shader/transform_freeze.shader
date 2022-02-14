@@ -2,7 +2,6 @@ shader_type canvas_item;
 
 uniform float offset: hint_range(0, 100) = 0;
 uniform float speed : hint_range(-10, 10) = 1;
-uniform float fade : hint_range(0.0, 1.0) = 1.0;
 
 
 // Approximates luminance from an RGB value
@@ -43,9 +42,5 @@ void fragment()
 	float value = offset + TIME * speed;
 	vec4 transform_freeze = transform_freeze(UV, TEXTURE, value);
 	vec4 output_color = transform_freeze;
-
-	output_color.a *= fade;
 	COLOR = output_color;
 }
-
-

@@ -5,8 +5,6 @@ uniform float hologram_noise_x : hint_range(0, 20) = 10;
 uniform float hologram_speed : hint_range(0, 4) = 1.0;
 uniform vec4 tint_color : hint_color = vec4(0, 0.65, 1, 1);
 
-uniform float fade : hint_range(0.0, 1.0) = 1.0;
-
 
 float holo_noise(sampler2D source, vec2 p, float time)
 {
@@ -82,9 +80,5 @@ void fragment()
 	vec4 hologram = hologram(UV, TEXTURE, hologram_value, hologram_noise_x, hologram_speed, TIME);
 	vec4 _tint_color = tint_holo_color(hologram, tint_color);
 	vec4 output_color = _tint_color;
-
-	output_color.a *= fade;
 	COLOR = output_color;
 }
-
-

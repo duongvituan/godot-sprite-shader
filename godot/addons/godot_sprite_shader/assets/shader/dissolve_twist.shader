@@ -1,7 +1,6 @@
 shader_type canvas_item;
 
 uniform float process_value : hint_range(0.0, 1.0) = 0.0;
-uniform float fade : hint_range(0.0, 1.0) = 1.0;
 
 vec2 rotate(vec2 n, float angle)
 {
@@ -22,7 +21,5 @@ vec4 dissolve_twist(vec2 uv, sampler2D sampler, float value)
 void fragment()
 {
 	vec4 output_color = dissolve_twist(UV, TEXTURE, process_value);
-
-	output_color.a *= fade;
 	COLOR = output_color;
 }

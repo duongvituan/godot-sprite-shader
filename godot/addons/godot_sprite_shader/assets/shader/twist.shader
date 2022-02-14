@@ -7,7 +7,6 @@ uniform float offset_y : hint_range(-1.0 , 2.0) = 0.5;
 uniform float ratius : hint_range(0.0 , 1.0) = 0.5;
 uniform float speed : hint_range(-10.0 , 10.0) = 1.0;
 uniform float smooth_value : hint_range(0.0 , 1.0) = 1.0;
-uniform float fade : hint_range(0.0, 1.0) = 1.0;
 
 
 vec2 rotate(vec2 n, float angle)
@@ -37,8 +36,5 @@ void fragment()
 	vec2 move_uv = twist_uv(UV, bend, offset_x, offset_y, ratius, speed, TIME);
 	vec2 uv = mix(UV, move_uv, vec2(smooth_value));
 	vec4 output_color = texture(TEXTURE, uv);
-
-	output_color.a *= fade;
 	COLOR = output_color;
 }
-

@@ -6,7 +6,6 @@ uniform vec4 tint_color : hint_color = vec4(0.0, 0.65, 1, 1);
 uniform float blend_value : hint_range(0.0, 1.0) = 1.0;
 uniform float size : hint_range(0.0, 10.0) = 0.75;
 uniform float amount : hint_range(0.0, 24.0) = 10.0;
-uniform float fade : hint_range(0.0, 1.0) = 1.0;
 
 
 float rand1(vec2 co, float random_seed)
@@ -47,7 +46,5 @@ void fragment()
 	vec4 glitch = glitch(UV, TEXTURE, size, amount, speed, value);
 	vec4 tint = blend_color(glitch, tint_color, blend_value);
 	vec4 final_result = tint;
-	
-	final_result.a = final_result.a * fade;
 	COLOR = final_result;
 }

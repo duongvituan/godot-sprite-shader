@@ -4,7 +4,7 @@ uniform int direction = 0;
 uniform float row : hint_range(1.0, 100.0) = 16.0;
 uniform float column : hint_range(1.0, 100.0) = 16.0;
 uniform float matrix_value : hint_range(1, 25) = 10;
-uniform float fade : hint_range(0.0, 1.0) = 1.0;
+
 uniform vec4 tint_color : hint_color = vec4(0.0, 1.0, 0.0, 1.0);
 uniform sampler2D chars_tex;
 uniform float number_row_char_texture = 16.0;
@@ -74,6 +74,5 @@ void fragment() {
 	txt.rgb = matrix;
 	
 	vec4 output_color = txt;
-	output_color.a *= fade;
 	COLOR = output_color;
 }

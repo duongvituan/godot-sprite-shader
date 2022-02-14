@@ -1,7 +1,6 @@
 shader_type canvas_item;
 
 uniform float process_value : hint_range(0, 1) = 0;
-uniform float fade : hint_range(0.0, 1.0) = 1.0;
 
 uniform float offset_x : hint_range(-1, 1) = 0.5;
 uniform float offset_y : hint_range(-1, 1) = 0.5;
@@ -59,7 +58,5 @@ void fragment()
 {
 	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
 	vec4 output_color = dissolve_vfx(TEXTURE, UV, line_color, in_color, size, 1.0 - process_value);
-
-	output_color.a *= fade;
 	COLOR = output_color;
 }

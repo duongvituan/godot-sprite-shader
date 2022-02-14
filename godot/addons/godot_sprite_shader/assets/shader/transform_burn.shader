@@ -4,7 +4,6 @@ uniform float offset: hint_range(0, 100) = 0;
 uniform float speed : hint_range(-10, 10) = 1;
 uniform float offset_burn : hint_range(-1 , 1) = 0;
 uniform float burn_value : hint_range(0 , 1) = 1;
-uniform float fade : hint_range(0.0, 1.0) = 1.0;
 
 
 vec4 burn_color(vec4 tx, float _offset, float _burn_value, float value)
@@ -25,7 +24,5 @@ void fragment()
 	vec4 main_tex = texture(TEXTURE, UV);
 	vec4 color = burn_color(main_tex, offset_burn, burn_value, value);
 	vec4 output_color = color;
-
-	output_color.a *= fade;
 	COLOR = output_color;
 }

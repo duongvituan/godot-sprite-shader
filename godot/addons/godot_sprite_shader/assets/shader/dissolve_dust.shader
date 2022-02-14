@@ -6,7 +6,6 @@ uniform float dust_size : hint_range(1, 256) = 64;
 uniform float dust_value_x : hint_range(0, 10) = 1.0;
 uniform float dust_value_y : hint_range(0, 10) = 4.0;
 uniform float process_value : hint_range(0, 1) = 0.0;
-uniform float fade : hint_range(0.0, 1.0) = 1.0;
 
 
 vec2 rotate(vec2 n, float angle)
@@ -50,6 +49,5 @@ void fragment()
 	uv = mix(UV, uv, process_value);
 
 	vec4 output_color = texture(TEXTURE, uv);
-	output_color.a *= fade;
 	COLOR = output_color;
 }

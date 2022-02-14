@@ -3,7 +3,6 @@ shader_type canvas_item;
 uniform float offset: hint_range(0, 100) = 0;
 uniform float speed : hint_range(-10, 10) = 1;
 uniform vec4 fill_color : hint_color = vec4(0.92, 0.9, 0.88, 1);
-uniform float fade : hint_range(0.0, 1.0) = 1.0;
 
 
 vec4 tint_color(vec4 txt, vec4 color)
@@ -39,7 +38,5 @@ void fragment()
 	vec4 transform_ghost = transform_ghost(UV, TEXTURE, value);
 	vec4 color = tint_color(transform_ghost, fill_color);
 	vec4 output_color = color;
-
-	output_color.a *= fade;
 	COLOR = output_color;
 }
