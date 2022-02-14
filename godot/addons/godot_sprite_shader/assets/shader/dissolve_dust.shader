@@ -16,14 +16,14 @@ vec2 rotate(vec2 n, float angle)
 
 vec2 displacement_rotative_uv(vec2 uv, vec4 noise, float v, float a)
 {
-	return mix(uv, uv + rotate(vec2(noise.r - 0.5, noise.r -0.5), a * 3.1415926), v);
+	return mix(uv, uv + rotate(vec2(noise.r - 0.5, noise.r - 0.5), a * 3.1415926), v);
 }
 
 
-vec2 resize_uv_clamp(vec2 uv, float offsetx, float offsety, float zoomx, float zoomy)
+vec2 resize_uv_clamp(vec2 uv, float offsetx, float offsety, float x, float y)
 {
 	uv += vec2(offsetx, offsety);
-	uv = fract(clamp(uv * vec2(zoomx*zoomx, zoomy*zoomy), 0.0001, 0.9999));
+	uv = fract(clamp(uv * vec2(x*x, y*y), 0.0001, 0.9999));
 	return uv;
 }
 
