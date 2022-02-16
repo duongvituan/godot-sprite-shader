@@ -52,6 +52,7 @@ func _on_finished_shader(ez_shader):
 Inherits: Node < Object
 
 ### Description
+
 SShader is the node that holds the Shader file. You don't need config the noise texture for the shader, everything is already config, you just drag and drop the type shader you want to use and change param it.
 
 ### Properties
@@ -105,7 +106,9 @@ example **hit effect**:
 Inherits: SShader < Node < Object
 
 ### Description
-SShaderInterval is SShader but it has property **process_value**. You need update process_value to do animation (you can use play func or use AnimationPlayer..)
+
+SShaderInterval is SShader but it has property **process_value**. 
+You need update process_value to do animation (you can use play func or use AnimationPlayer...)
 
 
 ### Properties

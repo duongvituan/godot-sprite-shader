@@ -31,6 +31,11 @@ If you need more details, you can watch the video above.
  - With **SShader** you can **activate** or **inactive** them to apply or remove shader into the sprite.
  - With **SShaderInterval** (orange) types it needs to update the **process_value** variable to do the animation, you can do this with the AnimationPlayer or using the play function.
 
+example:
+```
+    $SShaderContainer/SSDisovelFlash.play(0.1)
+```
+
 ## Docs
 - If you need more information about **docs**, please refer to the [link](docs/docs.md)
 
