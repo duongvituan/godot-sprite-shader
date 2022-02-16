@@ -89,3 +89,4 @@ You can contribute code and submit pull or you can provide ideas and resources b
 
 [MIT License](https://github.com/duongvituan/godot-sprite-shader/blob/master/LICENSE)
 
+<a href="https://www.buymeacoffee.com/duongvituan" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
