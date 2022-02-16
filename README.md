@@ -28,38 +28,14 @@ If you need more details, you can watch the video above.
 1. First, you need to add Node **SShaderContainer** and set the **node path** to the node where you want to use the shader (it can be Sprite, RectTexturem, ViewportContainer...)
 2. Add the **SShader** types you want to use. The SShader is child of SShaderContainer.
 3. Use:
- - With SShader you can activate or inactive them to apply or remove shader into the sprite.
- - With SShaderInterval (orange) types it needs to update the process_value variable to do the animation, you can do this with the AnimationPlayer or using the functions:
- 
-```python
-func play(duration: float, inactive_when_finished: bool = false)
-func play_repeat(duration: float, repeat: int, inactive_when_finished: bool = false, delay_each_repeat: float = 0.0)
-func play_repeat_forever(duration: float, delay_each_repeat: float = 0.0)
+ - With **SShader** you can **activate** or **inactive** them to apply or remove shader into the sprite.
+ - With **SShaderInterval** (orange) types it needs to update the **process_value** variable to do the animation, you can do this with the AnimationPlayer or using the play function.
 
-func play_reverse(duration: float, inactive_when_finished: bool = false)
-func play_reverse_repeat(duration: float, repeat: int, inactive_when_finished: bool = false, delay_each_repeat: float = 0.0)
-func play_reverse_repeat_forever(duration: float, delay_each_repeat: float = 0.0)
-```
+## Docs
+- If you need more information about **docs**, please refer to the [link](docs/docs.md)
 
-ex: ```$Char2/SShaderContainer/SSDissolveDust.play(1.0, false)```
 
-> Note: If you call function play for the SShader (White), it's simply an active shader at the start and inactive shader at the end.
-
-ex: You want to create a **hit effect** when the character is hit.
-
-Pseudocode:
-- Active Shader change Sprite to white color.
-- Wait 0.1s
-- Inactive Shader
-
-The code when you use SShader for above example:
-```
-    $SShaderContainer/SSOneColor.play(0.1, true)
-```
-
-![Hit Effect](https://github.com/duongvituan/godot-sprite-shader/blob/master/preview_image/hit_effect.gif)
-
-### Use Viewport
+## Use tool Viewport
 
 - All SShaders work fine when you use shaders with textures of 1 image.
 - However, some SShader do not work well when sprites use a sheet image.
