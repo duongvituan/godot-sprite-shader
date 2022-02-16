@@ -17,16 +17,16 @@ var animating_shader = null
 var _is_ready = false
 
 
-var inactive_when_finished: bool = false
-var repeat_forever: bool = false
-var repeat: int = 1
-var delay_each_repeat: float = 0
+var _inactive_when_finished: bool = false
+var _repeat_forever: bool = false
+var _repeat: int = 1
+var _delay_each_repeat: float = 0
 var _repeat_count: int = 0
 var _current_delay_each_repeat_time: float = 0
-var is_reverse: bool = false
+var _is_reverse: bool = false
 
 
-var duration: float = 0.0	
+var _duration: float = 0.0	
 var _current_time: float = 0.0
 var _old_eased_value: float = 0.0
 
@@ -51,7 +51,7 @@ func _process(delta):
 		set_process(false)
 		return
 	
-	if (not is_instance_valid(node_use_shader)) or duration <= 0.0:
+	if (not is_instance_valid(node_use_shader)) or _duration <= 0.0:
 		_finished()
 		return
 	
@@ -67,9 +67,9 @@ func _process(delta):
 			delta = abs(_current_delay_each_repeat_time)
 	
 	_current_time += delta
-	if _current_time > duration:
+	if _current_time > _duration:
 		# final frame call update
-		activating_shader._update_value_if_need(duration, duration + delta - _current_time)
+		activating_shader._update_value_if_need(_duration, _duration + delta - _current_time)
 		_reset_time_value()
 		_check_repeat_or_finish()
 		return
@@ -91,20 +91,19 @@ func set_node_use_shader(node):
 # warning-ignore:shadowed_variable
 func _play(node_shader, duration: float, repeat: int, delay_each_repeat: float, is_reverse: bool, inactive_when_finished: bool):
 	set_process(false)
-	self.duration = duration
+	self._duration = duration
 	if repeat > 0:
-		self.repeat = repeat
+		self._repeat = repeat
 	else:
-		self.repeat_forever = true
-	self.delay_each_repeat = delay_each_repeat
-	self.is_reverse = is_reverse
-	self.inactive_when_finished = inactive_when_finished
+		self._repeat_forever = true
+	self._delay_each_repeat = delay_each_repeat
+	self._is_reverse = is_reverse
+	self._inactive_when_finished = inactive_when_finished
 	
 	node_shader.is_active = true
 	animating_shader = node_shader
 	_reset()
 	set_process(true)
-	
 
 
 func _reset_time_value():
@@ -119,12 +118,12 @@ func _reset():
 
 
 func _check_repeat_or_finish():
-	_current_delay_each_repeat_time = delay_each_repeat
-	if repeat_forever:
+	_current_delay_each_repeat_time = _delay_each_repeat
+	if _repeat_forever:
 		return
 		
 	_repeat_count += 1
-	if _repeat_count >= repeat:
+	if _repeat_count >= _repeat:
 		_finished()
 
 
@@ -136,7 +135,7 @@ func _finished():
 	
 	animating_shader = null
 	
-	if inactive_when_finished:
+	if _inactive_when_finished:
 		self.activating_shader.is_active = false
 
 

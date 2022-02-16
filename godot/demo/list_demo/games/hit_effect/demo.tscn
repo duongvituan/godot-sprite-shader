@@ -31,24 +31,8 @@ scale = Vector2( -1, 1 )
 [node name="Label" parent="Dino/Char" index="0"]
 visible = false
 
-[node name="SSOneColor" parent="Dino/SShaderContainer" index="0"]
-is_active = false
-fade = 1.0
-color = Color( 1, 1, 1, 1 )
-
-[node name="SSTransfromFreeze" parent="Dino/SShaderContainer" index="1"]
-is_active = false
-fade = 1.0
-offset = 0.0
-speed = 1.0
-
 [node name="SSTransfromBurn" parent="Dino/SShaderContainer" index="2"]
-is_active = false
-fade = 1.0
-offset = 0.0
-speed = 1.0
-offset_burn = 1.0
-burn_value = 1.0
+offset = 1.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 250.0

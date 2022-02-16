@@ -3,7 +3,7 @@ class_name Dino
 
 enum STATUS {Normal, Freeze, Fire}
 
-onready var shader_player := $SShaderContainer
+onready var ss_container := $SShaderContainer
 onready var one_color := $SShaderContainer/SSOneColor
 onready var transform_freeze := $SShaderContainer/SSTransfromFreeze
 onready var transform_burn := $SShaderContainer/SSTransfromBurn
@@ -17,8 +17,8 @@ var current_burn_time = 0.0
 
 
 func _ready():
-	shader_player.connect("cancel_shader", self, "_on_cancel_shader")
-	shader_player.connect("finished_shader", self, "_on_finished_shader")
+	ss_container.connect("cancel_shader", self, "_on_cancel_shader")
+	ss_container.connect("finished_shader", self, "_on_finished_shader")
 
 
 func _process(delta):

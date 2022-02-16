@@ -1,6 +1,6 @@
 extends EditorInspectorPlugin
 
-var ex_view = preload("res://addons/godot_sprite_shader/src/tools/extension_view.tscn")
+var ex_view = preload("./extension_view.tscn")
 
 func can_handle(object):
 	return object is ViewportContainer
