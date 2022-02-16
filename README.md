@@ -7,9 +7,10 @@ res://addons/godot_sprite_shader/assets/shader/
 
 If you are not experience about shader or just want to use them in a few simple cases, this plugin comes with SShader (Sprite Shader) that help you use shader and run their animation quickly. You don't need config the noise texture for the shader, everything is already config, you just drag and drop the type shader you want to use and change param it.
 
-
 ![Preview](https://github.com/duongvituan/godot-sprite-shader/blob/master/preview_image/preview_demo1.gif)
 ![Use](https://github.com/duongvituan/godot-sprite-shader/blob/master/preview_image/demo_use.gif)
+
+In above demo, i use art assets robot from [link](https://www.gameart2d.com/freebies.html).
 
 ## Install and use
 
@@ -84,9 +85,12 @@ Contributions are welcome and are accepted via pull requests.
 
 You can contribute code and submit pull or you can provide ideas and resources by creating an issue. :)
 
+## Support Me
+If this plugin is useful to you. Buy me a cup of coffee if you can. 
+It motivates me to make more shaders in this plugin.
+
+<a href="https://www.buymeacoffee.com/duongvituan" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
 ## License
 
 [MIT License](https://github.com/duongvituan/godot-sprite-shader/blob/master/LICENSE)
-
-<a href="https://www.buymeacoffee.com/duongvituan" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
