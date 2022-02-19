@@ -14,7 +14,7 @@ In above demo, i use art assets robot from [link](https://www.gameart2d.com/free
 
 ## Install and use
 
-Watch tutorial video: update late
+Watch tutorial video: [link video](https://youtu.be/7vWHk1ilGvM)
 
 
 ### Installation
@@ -36,6 +36,8 @@ example:
 ```
     $SShaderContainer/SSDisovelFlash.play(0.1)
 ```
+
+If you need more details, you can watch the video above.
 
 ## Docs
 - If you need more information about **docs**, please refer to the [link](docs/docs.md)
