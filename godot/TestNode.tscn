@@ -1,13 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://addons/godot_sprite_shader/assets/shader/transfrom_wood.shader" type="Shader" id=1]
+[ext_resource path="res://addons/godot_sprite_shader/assets/shader/shake.shader" type="Shader" id=1]
 [ext_resource path="res://demo/assets/objects/dinosaur.png" type="Texture" id=2]
+[ext_resource path="res://demo/objects/char_viewport.tscn" type="PackedScene" id=3]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
+shader_param/speed = 1.0
 shader_param/intensity = 1.0
-shader_param/wood_value = 4.0
-shader_param/dark_value = 0.5
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/speed = 1.0
+shader_param/intensity = 1.0
 
 [node name="Node2D" type="Node2D"]
 
@@ -31,3 +36,11 @@ position = Vector2( 150, 150 )
 texture = ExtResource( 2 )
 hframes = 15
 vframes = 3
+
+[node name="Char" parent="." instance=ExtResource( 3 )]
+position = Vector2( 633, 371 )
+
+[node name="ViewportContainer" parent="Char" index="1"]
+material = SubResource( 2 )
+
+[editable path="Char"]
