@@ -3,13 +3,13 @@
 [ext_resource path="res://addons/godot_sprite_shader/assets/shader/shake.shader" type="Shader" id=1]
 [ext_resource path="res://demo/assets/objects/dinosaur.png" type="Texture" id=2]
 [ext_resource path="res://demo/objects/char_viewport.tscn" type="PackedScene" id=3]
-[ext_resource path="res://addons/godot_sprite_shader/assets/shader/spherize_float.shader" type="Shader" id=4]
+[ext_resource path="res://addons/godot_sprite_shader/assets/shader/twirl.shader" type="Shader" id=4]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 4 )
-shader_param/center_x = 0.65
-shader_param/center_y = 0.389
-shader_param/strength = 120.0
+shader_param/center_x = 0.5
+shader_param/center_y = 0.5
+shader_param/strength = 13.0
 shader_param/offset_x = 0.0
 shader_param/offset_y = 0.0
 
